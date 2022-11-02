@@ -28,8 +28,7 @@
         }
 
         #body-size {
-            {#width: 81.25rem;#}
-            width: 100%
+            width: 81.25rem;
             overflow: auto;
         }
 
@@ -53,10 +52,11 @@
             margin-left: 15px
         }
 
-        #clickBtn button {
+        #clickBtn input {
             width: 90px;
             height: 45px;
             background-color: #8d54fe;
+            margin-right: 3%;
         }
 
         #clickBtn :first-child i {
@@ -277,8 +277,19 @@
         <div class="text-box">
             <div id="clickBtn">
                 <h1>RunWay<i class="fa-solid fa-plane fa-1x"></i></h1>
-                <button onclick="  ">
-                    <i class="fa-solid fa-moon fa-2x"></i></button>
+                <input type="button" value="night" onclick="
+
+                    let target = document.querySelector('body');
+
+                    if(this.value === 'night'){
+                        target.style.backgroundColor='black';
+                        target.style.color = 'white';
+                        this.value = 'day';
+                    } else{
+                        target.style.backgroundColor='white';
+                        target.style.color='black';
+                        this.value = 'night';
+                    } ">
             </div>
             <br>
             <h4>개발자를 향해 나아가는 대원들!</h4>
@@ -326,13 +337,5 @@
         </div>
     </div>
 </div>
-
-
-<div id="splash-screen">
-    <div id="icon">
-        <i class="fa-solid fa-plane fa-5x"></i>
-    </div>
-</div>
-<script src="main.js" type="module"></script>
 </body>
 </html>
