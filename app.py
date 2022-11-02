@@ -42,6 +42,11 @@ def web_detail_get():
     user_list = list(db.users.find({}, {'_id': False}))
     return jsonify({'user': user_list})
 
+@app.route("/tmis",methods=["GET"])
+def web_tmi_get():
+    tmi_list = list(db.tmi.find({},{'_id':False}))
+    return jsonify({'tmi':tmi_list})
+
 # 상세페이지 댓글 부분
 
 @app.route("/comments", methods=["POST"])
