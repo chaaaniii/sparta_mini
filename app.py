@@ -1,9 +1,9 @@
-from pymongo import MongoClient
-client = MongoClient('mongodb+srv://test:sparta@cluster0.2frhcdl.mongodb.net/Cluster0?retryWrites=true&w=majority')
-db = client.dbsparta
-
 from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
+
+from pymongo import MongoClient
+client = MongoClient('mongodb+srv://test:sparta@cluster0.afmxt02.mongodb.net/Cluster0?retryWrites=true&w=majority')
+db = client.dbsparta
 
 #메인 화면
 
@@ -15,21 +15,32 @@ def home():
 def cheer_post():
     nickname_receive = request.form['nickname_give']
     cheer_receive = request.form['cheer_give']
+    num_receive = request.form.get('num_give')
+    pwd_receive = request.form.get('pwd_give')
 
     cheer_list = list(db.cheerpost.find({}, {'_id': False}))
     count = len(cheer_list) + 1
 
     doc = {
+        'chnum':count,
         'nickname': nickname_receive,
         'cheer':cheer_receive,
+        'saved_pwd':pwd_receive
     }
     db.cheerpost.insert_one(doc)
-    return jsonify({'msg': '등록 완료!'})
+    return jsonify({'msg': '방명록 등록 완료!'})
 
 @app.route("/cheers", methods=["GET"])
-def bucket_get():
+def cheer_get():
     cheer_list = list(db.cheerpost.find({}, {'_id': False}))
     return jsonify({'cheer': cheer_list})
+
+@app.route("/cheers", methods=["DELETE"])
+def cheer_delete():
+    num_receive = request.form.get('chnum_give')
+    # if(pwd_receive == comp_pwd):
+    db.cheerpost.delete_one({'chnum': int(num_receive)})
+    return jsonify({'msg': '삭제 완료!'})
 
 # 팀원 상세 페이지
 
@@ -60,9 +71,10 @@ def comment_post():
     count = len(comment_list) + 1
 
     doc = {
+        'member_no': int(member_no),
         'username': username_receive,
         'comment':comment_receive,
-        'member_no':member_no
+        'conum': count,
     }
     db.commentdb.insert_one(doc)
 
@@ -72,6 +84,12 @@ def comment_post():
 def comment_get():
     comment_list = list(db.commentdb.find({}, {'_id': False}))
     return jsonify({'comments': comment_list})
+
+@app.route("/comments", methods=["DELETE"])
+def comment_delete():
+    conum_receive = request.form.get('conum_give')
+    db.commentdb.delete_one({'conum': int(conum_receive)})
+    return jsonify({'msg': '삭제 완료!'})
 
 if __name__ == '__main__':
    app.run('0.0.0.0', port=5000, debug=True)

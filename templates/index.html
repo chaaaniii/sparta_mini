@@ -28,7 +28,8 @@
         }
 
         #body-size {
-            width: 81.25rem;
+            {#width: 81.25rem;#}
+            width: 100%
             overflow: auto;
         }
 
@@ -52,11 +53,10 @@
             margin-left: 15px
         }
 
-        #clickBtn input {
+        #clickBtn button {
             width: 90px;
             height: 45px;
             background-color: #8d54fe;
-            margin-right: 3%;
         }
 
         #clickBtn :first-child i {
@@ -213,11 +213,12 @@
         function save_cheers() {
             let nickname = $('#name').val()
             let comment = $('#comment').val()
+            let _pwd = $("#pwdinput").val()
 
             $.ajax({
                 type: 'POST',
                 url: '/cheers',
-                data: {nickname_give: nickname, cheer_give: comment},
+                data: {nickname_give: nickname, cheer_give: comment, pwd_give:_pwd},
                 success: function (response) {
                     alert(response['msg'])
                     window.location.reload()
@@ -234,15 +235,19 @@
                     // console.log(response)
                     let rows = response['cheer']
                     for (let i = 0; i < rows.length; i++) {
+                        let num = rows[i]['chnum']
                         let nickname = rows[i]['nickname']
                         let comment = rows[i]['cheer']
-
+                        {#let db_pwd = rows[i]['saved_pwd']#}
                         let temp_html = `<div class="card">
                                         <div class="card-body">
                                             <blockquote class="blockquote mb-0">
                                                 <p>${comment}</p>
                                                 <footer class="blockquote-footer">${nickname}</footer>
                                             </blockquote>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-outline-secondary" onclick="delete_cheers(${num})"><span class="tooltip">삭제</span>✖</button>
                                         </div>
                                     </div>`
                         $('#comment-list').append(temp_html)
@@ -251,6 +256,19 @@
             });
         }
 
+        function delete_cheers(num){
+            let del_pwd = $('#pwd').val()
+            // console.log(num)
+            $.ajax({
+                type: "DELETE",
+                url: "/cheers",
+                data: {chnum_give:num},
+                success: function (response) {
+                    alert(response["msg"])
+                    window.location.reload()
+                }
+            });
+        }
     </script>
 </head>
 <body>
@@ -259,19 +277,8 @@
         <div class="text-box">
             <div id="clickBtn">
                 <h1>RunWay<i class="fa-solid fa-plane fa-1x"></i></h1>
-                <input type="button" value="night" onclick="
-                
-                    let target = document.querySelector('body');
-                    
-                    if(this.value === 'night'){ 
-                        target.style.backgroundColor='black';
-                        target.style.color = 'white';
-                        this.value = 'day'; 
-                    } else{
-                        target.style.backgroundColor='white';
-                        target.style.color='black';
-                        this.value = 'night';
-                    } ">
+                <button onclick="  ">
+                    <i class="fa-solid fa-moon fa-2x"></i></button>
             </div>
             <br>
             <h4>개발자를 향해 나아가는 대원들!</h4>
@@ -305,10 +312,13 @@
                               style="height: 100px" required minlength="5"></textarea>
                     <label for="comment">글을 작성해주세요</label>
                 </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                    <label class="form-check-label" for="exampleCheck1">삭제 구현이 안됐습니다. 작성하시겠습니까?</label>
+                <div class="pwd-input">
+                    <input type="password" name="password" id="pwdinput" placeholder="새 비밀번호 입력">
                 </div>
+{#                <div class="mb-3 form-check">#}
+{#                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>#}
+{#                    <label class="form-check-label" for="exampleCheck1">삭제 구현이 안됐습니다. 작성하시겠습니까?</label>#}
+{#                </div>#}
                 <button onclick="save_cheers()" type="submit" class="btn btn-primary">글 남기기</button>
             </form>
         </div>
@@ -317,5 +327,12 @@
     </div>
 </div>
 
+
+<div id="splash-screen">
+    <div id="icon">
+        <i class="fa-solid fa-plane fa-5x"></i>
+    </div>
+</div>
+<script src="main.js" type="module"></script>
 </body>
 </html>

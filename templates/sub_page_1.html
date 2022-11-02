@@ -659,9 +659,10 @@
             //param 잘라서 필요한 정보 추출
 
             const qs = window.location.search.substring(1);
-            console.log(qs)
+            {#console.log('url', qs)#}
             const params = qs.split("&")[0];
             let num = Number(String(params).split('=')[1])
+            console.log(num)
             show_comments(num)
 
             //웹 페이지 동작시 구동
@@ -774,6 +775,7 @@
                 })
             }
             function show_comments(num){
+                console.log('댓글 보여주는',num, typeof(num))
                 $.ajax({
                     type: "GET",
                     url: "/comments",
@@ -781,6 +783,7 @@
                     success: function (response) {
                         let rows = response['comments']
                         for (let i = 0; i < rows.length; i++) {
+                            let res_num = rows[i]['conum']
                             let comp_num = rows[i]['member_no']
                             let username = rows[i]['username']
                             let comment = rows[i]['comment']
@@ -792,6 +795,9 @@
                                                         <footer class="blockquote-footer">${username}</footer>
                                                     </blockquote>
                                                 </div>
+                                                <div>
+                                                    <button type="button" class="btn btn-outline-secondary" onclick="delete_comments(${res_num})"><span class="tooltip"></span>삭제</button>
+                                                </div>
                                             </div>`
                                 $('#comment-list').append(temp_html)
                             }
@@ -800,7 +806,18 @@
                     }
                 });
             }
-
+            function delete_comments(num){
+                {#console.log("댓글 삭제", num)#}
+                $.ajax({
+                    type: "DELETE",
+                    url: "/comments",
+                    data: {conum_give: num},
+                    success: function (response) {
+                        alert(response["msg"])
+                        window.location.reload()
+                    }
+                });
+            }
             //돌아가기 버튼
 
             function GotoBack(){
@@ -1243,7 +1260,7 @@
                         <label for="floatingTextarea2">코멘트</label>
                     </div>
             
-                    <button type="button" class="btn btn-dark">코멘트 남기기</button>
+                    <button onclick="save_comment(`${num}`)" type="button" class="btn btn-dark">코멘트 남기기</button>
                 </div>
 
             </div>
