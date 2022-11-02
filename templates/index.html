@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="CSS/introduce.css"> -->
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/firstscreen.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/55e1dcffbe.js" crossorigin="anonymous"></script>
+    <style>
+
+        * {
+            font-family: 'Gowun Dodum', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        #body-size {
+            width: 81.25rem;
+            height: 150vh;
+            overflow: auto;
+        }
+
+        .text-box {
+            margin-top: 2%;
+            margin-left: 5%;
+        }
+
+        .text-box h1 {
+            font-size: 40px;
+            text-decoration: underline;
+            text-decoration-color: #7634FA;
+        }
+
+        #clickBtn {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .fa-plane {
+            margin-left: 15px
+        }
+
+        #clickBtn button {
+            width: 90px;
+            height: 45px;
+            background-color: #8d54fe;
+        }
+
+        #clickBtn :first-child i {
+            color: #7634FA;
+        }
+
+
+        .team-intro {
+            height: 600px;
+            margin-top: 8%;
+            display: flex;
+            justify-content: space-around;
+            margin-left: 5%;
+        }
+
+        .team-intro__imgbox {
+            width: 650px;
+            height: 600px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .team-intro__imgbox__1 input {
+            width: 250px;
+            height: 250px;
+            border-radius: 15%;
+            margin-right: 25px;
+        }
+
+
+        .team-intro__text-box {
+            width: 600px;
+            height: 600px;
+            text-align: center;
+            margin-top: 105px;
+        }
+
+        .team-intro__text-box h2 {
+            text-decoration: underline;
+            text-decoration-color: #7634FA;
+        }
+
+        .invite-box {
+            margin-right: 5%;
+            margin-left: 5%;
+            margin-top: 5%;
+        }
+
+        .invite-box h2 {
+            margin-bottom: 2%;
+            text-decoration: underline;
+            text-decoration-color: #7634FA;
+        }
+
+        .col:focus-within input {
+            width: 10vw;
+        }
+
+        .col {
+            margin-bottom: 1%;
+        }
+
+        @media (max-width: 1080px) {
+
+            .team-intro__imgbox img {
+                width: 200px;
+                height: 200px;
+                border-radius: 15%;
+            }
+        }
+
+        @media (max-width: 878px) {
+            #clickBtn {
+                display: flex;
+                justify-content: center;
+            }
+
+            #clickBtn input {
+                margin-left: 5%;
+            }
+
+            .text-box {
+                text-align: center;
+            }
+
+            .team-intro {
+                flex-wrap: wrap;
+            }
+
+            .team-intro__text-box {
+                width: 50vh;
+                height: 10vh;
+            }
+
+            .team-intro__imgbox {
+                display: flex;
+                justify-content: center;
+
+            }
+
+            .team-intro__imgbox img {
+                margin-top: 0;
+                width: 250px;
+                height: 250px;
+                border-radius: 15%;
+            }
+
+            .invite-box {
+                margin-top: 50%;
+                margin-bottom: 2%;
+            }
+        }
+
+        .mycards{
+            margin: 20px auto 0 auto;
+        }
+    </style>
+    <script>
+
+        //메인 페이지 팀 사진 부분
+
+        $(document).ready(function () {
+            show_photo();
+            show_cheers();
+        });
+
+        function show_photo() {
+            $.ajax({
+                type: 'GET',
+                url: '/details',
+                data: {},
+                success: function (response) {
+                    let rows = response['user']
+                    for (let i = 0; i < rows.length; i++) {
+                        let profile_img = rows[i]['profile_img']
+                        let key = rows[i]['key']
+
+
+                        let temp_html = ` <div class="team-intro__imgbox__1">
+                                                  <form action="http://localhost:5000/detail">
+                                                  <input type="text" name="key" value="${key}" style="display: none">
+                                                      <input type="image" src="${profile_img}">
+                                                  </form>
+                                              </div>`
+
+                        $('#team_img').append(temp_html)
+                    }
+                }
+            });
+        }
+
+        //팀 방명록 부분
+        function save_cheers() {
+            let nickname = $('#name').val()
+            let comment = $('#comment').val()
+
+            $.ajax({
+                type: 'POST',
+                url: '/cheers',
+                data: {nickname_give: nickname, cheer_give: comment},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload()
+                }
+            })
+        }
+
+        function show_cheers() {
+            $.ajax({
+                type: "GET",
+                url: "/cheers",
+                data: {},
+                success: function (response) {
+                    // console.log(response)
+                    let rows = response['cheer']
+                    for (let i = 0; i < rows.length; i++) {
+                        let nickname = rows[i]['nickname']
+                        let comment = rows[i]['cheer']
+
+                        let temp_html = `<div class="card">
+                                        <div class="card-body">
+                                            <blockquote class="blockquote mb-0">
+                                                <p>${comment}</p>
+                                                <footer class="blockquote-footer">${nickname}</footer>
+                                            </blockquote>
+                                        </div>
+                                    </div>`
+                        $('#comment-list').append(temp_html)
+                    }
+                }
+            });
+        }
+
+    </script>
+</head>
+<body>
+<div id="body-size">
+    <div class="title-box">
+        <div class="text-box">
+            <div id="clickBtn">
+                <h1>RunWay<i class="fa-solid fa-plane fa-1x"></i></h1>
+                <button onclick="  ">
+                    <i class="fa-solid fa-moon fa-2x"></i></button>
+            </div>
+            <br>
+            <h4>개발자를 향해 나아가는 대원들!</h4>
+        </div>
+    </div>
+
+    <div class="team-intro">
+        <div class="team-intro__imgbox" id="team_img">
+        </div>
+
+
+        <div class="team-intro__text-box">
+            <h2>TEAM Intro</h2><br>
+            <h4>시간 약속을 잘 지켜요</h4>
+            <h4>팀원들과 소통이 잘 돼요</h4>
+            <h4>열심히 공부해요</h4>
+        </div>
+
+    </div>
+
+    <div class="invite-layout">
+        <div class="invite-box">
+            <h2>INVITE</h2>
+            <form>
+                <div class="col">
+                    <input type="text" class="form-control" id="name" placeholder="NickName">
+
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="comment"
+                              style="height: 100px" required minlength="5"></textarea>
+                    <label for="comment">글을 작성해주세요</label>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                    <label class="form-check-label" for="exampleCheck1">삭제 구현이 안됐습니다. 작성하시겠습니까?</label>
+                </div>
+                <button onclick="save_cheers()" type="submit" class="btn btn-primary">글 남기기</button>
+            </form>
+        </div>
+        <div class="mycards" id="comment-list">
+        </div>
+    </div>
+</div>
+
+
+<div id="splash-screen">
+    <div id="icon">
+        <i class="fa-solid fa-plane fa-5x"></i>
+    </div>
+</div>
+<script src="main.js" type="module"></script>
+</body>
+</html>
