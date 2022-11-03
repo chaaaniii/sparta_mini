@@ -5,16 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
-      rel="stylesheet"
-    />
+
+    <!--CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="CSS/introduce.css"> -->
     <link rel="stylesheet" href="CSS/index.css" />
     <link rel="stylesheet" href="CSS/firstscreen.css" />
@@ -33,131 +29,128 @@
         font-family: "Gowun Dodum", sans-serif;
       }
 
-      body {
-        display: flex;
-        justify-content: center;
-      }
 
-      #body-size {
-        width: 81.25rem;
-        overflow: auto;
-      }
-
-      .text-box {
-        margin-top: 2%;
-        margin-left: 5%;
-      }
-
-      .text-box h1 {
-        font-size: 40px;
-        text-decoration: underline;
-        text-decoration-color: #7634fa;
-      }
-
-      #clickBtn {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      .fa-plane {
-        margin-left: 15px;
-      }
-
-      #clickBtn input {
-        width: 90px;
-        height: 45px;
-        background-color: #8d54fe;
-        margin-right: 3%;
-      }
-
-      #clickBtn :first-child i {
-        color: #7634fa;
-      }
-
-      .team-intro {
-        height: 600px;
-        margin-top: 8%;
-        display: flex;
-        justify-content: space-around;
-        margin-left: 5%;
-      }
-
-      .team-intro__imgbox {
-        width: 650px;
-        height: 600px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-
-      .team-intro__imgbox__1 input {
-        width: 250px;
-        height: 250px;
-        border-radius: 15%;
-        margin-right: 25px;
-      }
-
-      .team-intro__text-box {
-        width: 600px;
-        height: 600px;
-        text-align: center;
-        margin-top: 105px;
-      }
-
-      .team-intro__text-box h2 {
-        text-decoration: underline;
-        text-decoration-color: #7634fa;
-      }
-
-      .invite-box {
-        margin-right: 5%;
-        margin-left: 5%;
-        margin-top: 5%;
-      }
-
-      .invite-box h2 {
-        margin-bottom: 2%;
-        text-decoration: underline;
-        text-decoration-color: #7634fa;
-      }
-
-      .col:focus-within input {
-        width: 10vw;
-      }
-
-      .col {
-        margin-bottom: 1%;
-      }
-
-      @media (max-width: 1080px) {
-        .team-intro__imgbox img {
-          width: 200px;
-          height: 200px;
-          border-radius: 15%;
+        * {
+            font-family: 'Gowun Dodum', sans-serif;
         }
-      }
 
-      @media (max-width: 878px) {
+        body {
+            /* display: flex; */
+            width:100%;
+            justify-content: center;
+        }
+
+        #body-size {
+            width: 100%;
+            margin: 0 auto;
+
+            position:relative;
+        }
+
+        .title-box {
+           width:90%;
+            height:87vh;
+            /* background-color:lightcoral; */
+            margin:0 auto;
+
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .text-box {
+            width:100%;
+        }
+
+        .text-box h1 {
+            font-size: 3.2vw;
+            font-weight:100;
+            text-decoration: underline;
+            text-decoration-color: #7634FA;
+        }
+      
+
+
+        .text-box h4 {
+            font-size:7vw;
+            font-weight:500;
+        }
+
         #clickBtn {
-          display: flex;
-          justify-content: center;
+            float:right;
+
+            position:absolute;
+            right:2%;
+            top:2%;
+        }
+
+        .fa-plane {
+            margin-left: 15px
         }
 
         #clickBtn input {
           margin-left: 5%;
         }
 
-        .text-box {
-          text-align: center;
+
+        #clickBtn2 i {
+            color: #7634FA;
         }
 
         .team-intro {
-          flex-wrap: wrap;
+
+            height: 76vw;
+            /* margin-top: 8%; */
+            display: flex;
+            margin-left: 5%;
         }
 
-        .team-intro__text-box {
-          width: 50vh;
-          height: 10vh;
+        .member_img_list {
+            list-style:none;
+
+            width:44vw;
+            height:70vw;
+
+            display:flex;
+            justify-content: space-between;
+
+            position: relative;
+            }
+
+        .list_1, .list_2 {
+            width:calc(100% - 10%);
+            height:90%;
+
+            list-style:none;
+
+            padding:0px;
+            margin:0px;
+        }
+
+        .list_1 input, .list_2 input {
+            width:100%;
+            height:30vw;
+            margin-bottom:20%;
+            background-color:lightgreen;
+
+            border-radius:20px;
+
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .list_1 input:last-child, .list_2 input:last-child {
+            margin-bottom:0;
+        }
+
+        .list_1 {
+            position:relative;
+        }
+
+        .list_2 {
+            position:relative;
+            top:100px;
         }
 
         .team-intro__imgbox {
@@ -165,32 +158,351 @@
           justify-content: center;
         }
 
-        .team-intro__imgbox img {
-          margin-top: 0;
-          width: 250px;
-          height: 250px;
-          border-radius: 15%;
+        .team-intro__imgbox__1 input {
+            width: 250px;
+            height: 250px;
+            border-radius: 15%;
+            margin-right: 25px;
+        }
+
+
+        .team-intro__text-box {
+            width: auto;
+            height: auto;
+            align-items:center;
+
+            margin-left:7%;
+        }
+
+        .intro__text-box__phone{
+            width: auto;
+            height: auto;
+        }
+
+        .phone-title {
+
+            width: auto;
+            height: auto;
+
+            margin-top:160px;
+        }
+
+        .phone-title h2 {
+            font-size:6vw;
+            font-weight:500;
+        }
+
+        .phone-text__box{
+            width: auto;
+            height: auto;
+
+        }
+
+        .phone-text__minibox {
+            width: auto;
+            height: auto;
+
+            margin-top:10%;
+        }
+
+        
+        .phone-text__minibox h4 {
+            font-size: 1.8vw;
+            font-weight: 400;
+            
+            margin-bottom:10px;
+        }
+
+        .phone-text__minibox i {
+            font-size: 50px;
+            color: #7634FA;
+            opacity: 0.6;
+
         }
 
         .invite-box {
           margin-top: 50%;
           margin-bottom: 2%;
         }
-      }
+      
 
       .mycards {
         margin: 20px auto 0 auto;
       }
 
-      .card {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        padding: 1%;
-      }
+        .col:focus-within input {
+            width: 10vw;
+        }
+
+        .col {
+            margin-bottom: 1%;
+        }
+
+        #team_img{
+            display: grid;
+            grid-template-rows: 50% 50%;
+            grid-template-columns: 50% 50%;
+        }
+
+        @media (max-width: 1250px) {
+
+            .text-box h1 {
+                font-size: 4vw;
+                font-weight:100;
+                text-decoration: underline;
+                text-decoration-color: #7634FA;
+            }
+
+            .text-box h4 {
+                font-size:9vw;
+                font-weight:500;
+            }
+
+            .title-box {
+                width: 90%;
+                height: 70vh;
+                /* background-color: lightcoral; */
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 1080px) {
+
+            .team-intro__imgbox img {
+                width: 200px;
+                height: 200px;
+                border-radius: 15%;
+            }
+        }
+
+        @media (max-width: 878px) {
+
+            .title-box {
+                    width: 90%;
+                    height: 50vh;
+                    /* background-color: lightcoral; */
+                    margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+            }
+
+            #clickBtn {
+                display: flex;
+                justify-content: center;
+            }
+
+            #clickBtn input {
+                margin-left: 5%;
+            }
+
+            .text-box {
+                text-align: center;
+            }
+
+            .team-intro {
+                flex-wrap:wrap;
+
+                width:100%;
+            height: auto;
+            /* margin-top: 8%; */
+            display: flex;
+            margin-left: 0;
+            }
+
+            .team-intro__imgbox {
+                display: flex;
+                justify-content: center;
+
+            }
+
+            .team-intro__imgbox img {
+                margin-top: 0;
+                width: 250px;
+                height: 250px;
+                border-radius: 15%;
+            }
+
+            .member_img_list {
+                display:flex;
+                list-style:none;
+
+                width:80vw;
+                height:130vw;
+
+                margin:0 auto;
+
+            display:flex;
+            justify-content: space-between;
+
+            position: relative;
+            }
+
+            .list_1, .list_2 {
+                height:auto;
+            }
+
+        .list_1 input, .list_2 input {
+            width:100%;
+            height:50vw;
+            margin-bottom:20%;
+            background-color:lightgreen;
+
+            border-radius:20px;
+
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .team-intro__imgbox {
+            width: 650px;
+            height: 600px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .team-intro__imgbox__1 input {
+            width: 250px;
+            height: 250px;
+            border-radius: 15%;
+            margin-right: 25px;
+        }
+
+
+        .team-intro__text-box {
+            width: 100%;
+            height: auto;
+            align-items:center;
+
+            margin:0;
+
+            text-align: center;
+        }
+
+        .intro__text-box__phone{
+            width: auto;
+            height: auto;
+        }
+
+        .phone-title {
+
+            width: auto;
+            height: auto;
+
+            margin-top:100px;
+        }
+
+        .phone-title h2 {
+            font-size:10vw;
+            font-weight:500;
+        }
+
+        .phone-text__box{
+            width: auto;
+            height: auto;
+
+        }
+
+        .phone-text__minibox {
+            width: auto;
+            height: auto;
+
+            margin-top:10%;
+        }
+
+        .phone-text__minibox h4 {
+            font-size: 3.4vw;
+            font-weight: 400;
+            color: black;
+
+            margin-bottom:10px;
+        }
+
+        .phone-text__minibox i {
+            font-size: 50px;
+            color: #7634FA;
+            opacity: 0.6;
+
+        }
+
+
+            .invite-box {
+                margin-top: 20%;
+                margin-bottom: 2%;
+            }
+
+            #name, #pwdinput {
+                width: 45%;
+                margin-left: 10px;
+            }
+        }
+
+
+        .ip_input {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            width: 100%;
+        }
+
+        #name, #pwdinput {
+            width: 80%;
+            margin-left: 10px;
+
+        }
+
+        .idpwd_box {
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+
+        .mypost {
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+
+            border: 1px solid rgb(160, 160, 160);
+        }
+
+        .card {
+            margin-right: 5%;
+            margin-left: 5%;
+
+            z-index: 9;
+
+
+        }
+
+        .pw_box {
+            margin-left: 81%;
+            margin-top: 1.7%;
+            margin-bottom: -3.5%;
+
+            z-index: 99;
+
+            height: 36px;
+
+            display: flex;
+            position: relative;
+        }
+
+        .btn-outline-secondary {
+            margin-left: 95%;
+            margin-top: -3.5%;
+            display: flex;
+        }
+
     </style>
+    <!-- AOS 라이브러리 불러오기-->
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       //메인 페이지 팀 사진 부분
       $(document).ready(function () {
@@ -209,64 +521,99 @@
               let profile_img = rows[i]["profile_img"];
               let key = rows[i]["key"];
 
-              let temp_html = ` <div class="team-intro__imgbox__1">
+
+        $(document).ready(function () {
+            show_photo();
+            show_cheers();
+        });
+
+        function show_photo() {
+            $.ajax({
+                type: 'GET',
+                url: '/details',
+                data: {},
+                success: function (response) {
+                    let rows = response['user']
+                    for (let i = 0; i < rows.length-2; i++) {
+                        let profile_img = rows[i]['profile_img']
+                        let profile_img1 = rows[i+2]['profile_img']
+                        let key = rows[i]['key']
+                        let key1 = rows[i+2]['key']
+                        console.log(key1)
+
+                        let temp_html = ` <div class="team-intro__imgbox__1">
                                                   <form action="http://localhost:5000/detail">
-                                                  <input type="text" name="key" value="${key}" style="display: none">
+                                                      <input type="text" name="key" value="${key}" style="display: none">
                                                       <input type="image" src="${profile_img}">
                                                   </form>
                                               </div>`;
 
-              $("#team_img").append(temp_html);
+
+                        let temp_html1 = ` <div class="list_1">
+                                               <form action="http://localhost:5000/detail">
+                                                      <input type="text" name="key" value="${key}" style="display: none">
+                                                      <input type="image" src="${profile_img}">
+                                               </form>
+                                           </div>
+                                           <div class="list_2">
+                                               <form action="http://localhost:5000/detail">
+                                                      <input type="text" name="key" value="${key1}" style="display: none">
+                                                      <input type="image" src="${profile_img1}">
+                                               </form>
+                                           </div>`
+
+                        $('#team_img').append(temp_html1)
+                    }
+                }
+            });
+        }
+
+        //팀 방명록 부분
+        function save_cheers() {
+            let nickname = $('#name').val()
+            let comment = $('#comment').val()
+            let _pwd = $("#pwdinput").val()
+
+            console.log(nickname, comment, _pwd)
+            if (nickname == "") {
+                alert('이름을 입력하세요')
+            } else if (comment.length < 5) {
+                alert('5자 이상 내용을 입력하세요')
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    url: '/cheers',
+                    data: {nickname_give: nickname, cheer_give: comment, pwd_give: _pwd},
+                    success: function (response) {
+                        alert(response['msg'])
+                        window.location.reload()
+                    }
+                })
             }
-          },
+        },
         });
       }
 
-      //팀 방명록 부분
-      function save_cheers() {
-        let nickname = $("#name").val();
-        let comment = $("#comment").val();
-        let _pwd = $("#pwdinput").val();
 
-        // console.log(nickname, comment, _pwd)
-        if (nickname == "") {
-          alert("이름을 입력하세요");
-        } else if (comment.length < 5) {
-          alert("5자 이상 내용을 입력하세요");
-        } else {
-          $.ajax({
-            type: "POST",
-            url: "/cheers",
-            data: {
-              nickname_give: nickname,
-              cheer_give: comment,
-              pwd_give: _pwd,
-            },
-            success: function (response) {
-              alert(response["msg"]);
-              window.location.reload();
-            },
-          });
-        }
-      }
+        function show_cheers() {
+            $.ajax({
+                type: "GET",
+                url: "/cheers",
+                data: {},
+                success: function (response) {
+                    // console.log(response)
+                    let rows = response['cheer']
+                    for (let i = 0; i < rows.length; i++) {
+                        let createPwdInput = $("<input class='pw_box' placeholder='비밀번호' >")
+                        createPwdInput.attr("id", "pwd" + i)
+                        createPwdInput.attr("type", "password")
+                        console.log(createPwdInput)
+                        let num = rows[i]['chnum']
+                        let nickname = rows[i]['nickname']
+                        let comment = rows[i]['cheer']
+                        let db_pwd = rows[i]['saved_pwd']
 
-      // let cnt = 0; //비밀번호 데이터 밀림 보정을 위한 변수
-
-      function show_cheers() {
-        // let cnt = 0;
-        $.ajax({
-          type: "GET",
-          url: "/cheers",
-          data: {},
-          success: function (response) {
-            // console.log(response)
-            let rows = response["cheer"];
-            for (let i = 0; i < rows.length; i++) {
-              // let num = rows[i]["chnum"];
-              let nickname = rows[i]["nickname"];
-              let comment = rows[i]["cheer"];
-              let db_pwd = rows[i]["saved_pwd"];
-              let temp_html = `<div class="card">
+                        let temp_html = `<div class="card">
                                         <div class="card-body">
                                             <blockquote class="blockquote mb-0">
                                                 <p>${comment}</p>
@@ -274,119 +621,161 @@
                                             </blockquote>
                                         </div>
                                         <div class="card-body2">
-                                            <input type="password" id="pwd${i}">
-                                            <button type="button" class="btn btn-outline-secondary" onclick="delete_cheers('pwd${i}',${i})">✖</button>
-                                        </div>
-                                </div>`;
-              $("#comment-list").append(temp_html);
-            }
-          },
-        });
-      }
 
-      function delete_cheers(id_val, idx) {
-        let del_pwd = $(`#${id_val}`).val();
-        // console.log(del_pwd)
-        $.ajax({
-          type: "DELETE",
-          url: "/cheers",
-          data: { compPwd_give: del_pwd, idx_give: idx },
-          success: function (response) {
-            alert(response["msg"]);
-            window.location.reload();
-          },
-        });
-      }
+                                            <button type="button" class="btn btn-outline-secondary" onclick="delete_cheers('pwd'+${i}, ${num})">✖</button>
+                                        </div>
+                                    </div>`
+                        $('#comment-list').append(createPwdInput)
+                        $('#comment-list').append(temp_html)
+
+
+
+                        // $('#delete_pw').append(createPwdInput)
+                    }
+                }
+            });
+        }
+
+        function delete_cheers(id_val, num) {
+            let del_pwd = $(`#${id_val}`).val()
+            console.log(del_pwd)
+
+            $.ajax({
+                type: "DELETE",
+                url: "/cheers",
+                data: {compPwd_give: del_pwd, num_give: num},
+                success: function (response) {
+                    alert(response["msg"])
+                    window.location.reload()
+                }
+            });
+        }
     </script>
   </head>
   <body>
-    <div id="body-size">
-      <div class="title-box">
+  <div id="body-size">
+
+    <div id="clickBtn">
+        <input type="button" value="night" class="inputDayNight" onclick="
+
+                        let target = document.querySelector('body');
+                        let dayNight = document.querySelector('.inputDayNight');
+                        let inviteLabel = document.querySelector('.label');
+                        let targetInvite = document.querySelector('.mycards');
+                        let temaIntroText = document.querySelector('.phone-text__minibox');
+
+
+                        if(dayNight.value === 'night'){
+                            target.style.backgroundColor='black';
+                            target.style.color = 'white';
+                            inviteLabel.style.color = 'black';
+                            //temaIntroText.style.color = 'white';
+                            // class명 card 글씨 색상 변경 부분입니다
+                            targetInvite.style.color = 'black';
+                            dayNight.value = 'day';
+                        } else{
+                            target.style.backgroundColor='white';
+                            target.style.color='black';
+                            dayNight.value = 'night';
+        } ">
+    </div>
+
+    <div class="title-box">
+
         <div class="text-box">
-          <div id="clickBtn">
-            <h1>RunWay<i class="fa-solid fa-plane fa-1x"></i></h1>
-            <input
-              type="button"
-              value="night"
-              onclick="
 
-                    let target = document.querySelector('body');
+            <div id="clickBtn2">
+                <h1  data-aos="fade-down" data-aos-offset="200" data-aos-easing="ease-out-cubic" data-aos-duration="1400" data-aos-delay="0">RunWay<i class="fa-solid fa-plane fa-1x"></i></h1>
+            </div>
 
-                    if(this.value === 'night'){
-                        target.style.backgroundColor='black';
-                        target.style.color = 'white';
-                        this.value = 'day';
-                    } else{
-                        target.style.backgroundColor='white';
-                        target.style.color='black';
-                        this.value = 'night';
-                    } "
-            />
-          </div>
-          <br />
-          <h4>개발자를 향해 나아가는 대원들!</h4>
+            <br>
+
+            <h4  data-aos="fade-down" data-aos-offset="200" data-aos-easing="ease-out-cubic" data-aos-duration="1400" data-aos-delay="1000">개발자를 향해</br>
+                나아가는 대원들!</h4>
+        </div>
+    </div>
+
+    <script>
+        AOS.init(); // 자바스크립트로 init()을 해야 동작한다.
+    </script>
+
+        <div class="team-intro">
+            <!-- <div class="team-intro__imgbox" id="team_img"> -->
+
+            <!-- 그냥 이미지 박스 원하는 모양으로 임의로 디자인해본 것
+            그냥 상자의 크기나 둥글기가 이랬으면 좋겠다 하는 예시
+            안 쓸 거면 .member_img_list를 지우고 .team-intro__imgbox를 다시 쓰면 됨-->
+            <div id="team_img" class="member_img_list" data-aos="fade-down" data-aos-offset="200" data-aos-easing="ease-out-cubic" data-aos-duration="1400" data-aos-delay="400">
+
+<!--                <ul class="list_1">-->
+<!--                    <li><a href="#"></a></li>-->
+<!--                    <li><a href="#"></a></li>-->
+<!--                </ul>-->
+
+<!--                <ul class="list_2">-->
+<!--                    <li><a href="#"></a></li>-->
+<!--                    <li><a href="#"></a></li>-->
+<!--                </ul>-->
+
+            </div>
+            <!-- memver_img_list -->
+
+            <div class="team-intro__text-box">
+                <div class="intro__text-box__phone">
+                    <div class="phone-title">
+                        <h2>TEAM Intro</h2><br>
+                    </div>
+                    <div class="phone-text__box">
+                        <div class="phone-text__minibox">
+                            <h4>팀원들과 소통이 잘 돼요</h4><br>
+                            <h4>시간 약속을 잘 지켜요</h4><br>
+                            <h4>늦은 시간까지 공부해요</h4>
+                            <i class="bi bi-airplane"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
       </div>
 
       <div class="team-intro">
         <div class="team-intro__imgbox" id="team_img"></div>
 
-        <div class="team-intro__text-box">
-          <h2>TEAM Intro</h2>
-          <br />
-          <h4>시간 약속을 잘 지켜요</h4>
-          <h4>팀원들과 소통이 잘 돼요</h4>
-          <h4>열심히 공부해요</h4>
-        </div>
-      </div>
 
-      <div class="invite-layout">
+
+    <div class="invite-layout">
         <div class="invite-box">
-          <h2>INVITE</h2>
-          <form>
-            <div class="col">
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                placeholder="NickName"
-                required
-              />
-            </div>
-            <div class="form-floating">
-              <textarea
-                class="form-control"
-                placeholder="Leave a comment here"
-                id="comment"
-                style="height: 100px"
-                required
-                minlength="5"
-              ></textarea>
-              <label for="comment">내용을 입력하세요</label>
-            </div>
-            <div class="pwd-input">
-              <input
-                type="password"
-                name="password"
-                id="pwdinput"
-                placeholder="새 비밀번호 입력"
-              />
-            </div>
-            <!--                <div class="mb-3 form-check">-->
-            <!--                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>-->
-            <!--                    <label class="form-check-label" for="exampleCheck1">삭제 구현이 안됐습니다. 작성하시겠습니까?</label>-->
-            <!--                </div>-->
-            <button
-              onclick="save_cheers()"
-              type="submit"
-              class="btn btn-primary"
-            >
-              글 남기기
-            </button>
-          </form>
+            <h1>INVITE</h1>
+            <p>Please leave your footprints...</p>
+            <form>
+                <div class="mypost">
+                    <div class="idpwd_box">
+                        <div class="form-floating mb-3">
+                            <p class="ip_input">닉네임 : <input type="text" class="form-control" id="name"
+                                                             placeholder="닉네임을 입력해주세요."
+                                                             required></p>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <P class="ip_input">비밀번호 : <input type="password" name="password" id="pwdinput"
+                                                              class="form-control"
+                                                              placeholder="새 비밀번호 입력해주세요."></P>
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="comment"
+                              style="height: 100px" onresize="none" required minlength="5"></textarea>
+                        <label class="label" for="comment">내용을 입력하세요</label>
+                    </div>
+                    <button onclick="save_cheers()" type="button" class="btn btn-primary">글 남기기</button>
+                </div>
+            </form>
         </div>
+
+
         <div class="mycards" id="comment-list"></div>
-      </div>
+
+
     </div>
   </body>
 </html>

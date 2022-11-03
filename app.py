@@ -23,7 +23,9 @@ def cheer_post():
     print("서버가 받은 cheer값",cheer_receive)
 
     cheer_list = list(db.cheerpost.find({}, {'_id': False}))
-    count = len(cheer_list) + 1
+    count = len(cheer_list)
+
+
 
     doc = {
         'chnum':count,
