@@ -25,29 +25,51 @@
         }
 
         body {
-            display: flex;
+            /* display: flex; */
+            width:100%;
             justify-content: center;
         }
 
         #body-size {
-            width: 81.25rem;
-            overflow: auto;
+            width: 100%;
+            margin: 0 auto;
+
+            position:relative;
+        }
+
+        .title-box {
+           width:90%;
+            height:87vh;
+            /* background-color:lightcoral; */
+            margin:0 auto;
+
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .text-box {
-            margin-top: 2%;
-            margin-left: 5%;
+            width:100%;
         }
 
         .text-box h1 {
-            font-size: 40px;
+            font-size: 3.2vw;
+            font-weight:100;
             text-decoration: underline;
             text-decoration-color: #7634FA;
         }
 
+        .text-box h4 {
+            font-size:7vw;
+            font-weight:500;
+        }
+
         #clickBtn {
-            display: flex;
-            justify-content: space-between;
+            float:right;
+
+            position:absolute;
+            right:2%;
+            top:2%;
         }
 
         .fa-plane {
@@ -61,17 +83,64 @@
             margin-right: 3%;
         }
 
-        #clickBtn :first-child i {
+        #clickBtn2 i {
             color: #7634FA;
         }
 
 
         .team-intro {
-            height: 600px;
-            margin-top: 8%;
+            height: 76vw;
+            /* margin-top: 8%; */
             display: flex;
-            justify-content: space-around;
             margin-left: 5%;
+        }
+
+        .member_img_list {
+            list-style:none;
+
+            width:44vw;
+            height:70vw;
+
+            display:flex;
+            justify-content: space-between;
+
+            position: relative;
+            }
+
+        .list_1, .list_2 {
+            width:calc(100% - 10%);
+            height:90%;
+
+            list-style:none;
+
+            padding:0px;
+            margin:0px;
+        }
+
+        .list_1 input, .list_2 input {
+            width:100%;
+            height:30vw;
+            margin-bottom:20%;
+            background-color:lightgreen;
+
+            border-radius:20px;
+
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .list_1 input:last-child, .list_2 input:last-child {
+            margin-bottom:0;
+        }
+
+        .list_1 {
+            position:relative;
+        }
+
+        .list_2 {
+            position:relative;
+            top:100px;
         }
 
         .team-intro__imgbox {
@@ -91,62 +160,58 @@
 
 
         .team-intro__text-box {
-            width: 600px;
-            height: 600px;
-            display: flex;
-            justify-content: center;
-            margin-top: 5%;
+            width: auto;
+            height: auto;
+            align-items:center;
+
+            margin-left:7%;
         }
 
         .intro__text-box__phone{
-            width: 310px;
-            height: 510px;
-            border: 2px solid #7634FA;
-            border-radius: 30px;
-            text-align: center;
-            
+            width: auto;
+            height: auto;
         }
 
         .phone-title {
-            background-color: #7634FA;
-            width: 310px;
-            height: 70px;
-            border-radius: 23px 23px 0px 0px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+
+            width: auto;
+            height: auto;
+
+            margin-top:160px;
         }
 
         .phone-title h2 {
-            margin-top: 2%;
+            font-size:6vw;
+            font-weight:500;
         }
 
         .phone-text__box{
-            width: 310px;
-            height: 440px;
-            display: flex;
-            justify-content: center;
-            align-items: center; 
+            width: auto;
+            height: auto;
+
         }
 
         .phone-text__minibox {
-            width: 230px;
-            height: 330px;
-            box-shadow: 0px 0px 7px 0px #7634FA;
+            width: auto;
+            height: auto;
+
+            margin-top:10%;
         }
 
         .phone-text__minibox h4 {
-            font-size: 22.5px;
-            font-weight: 600;
+            font-size: 1.8vw;
+            font-weight: 400;
+            color:#222;
+
+            margin-bottom:10px;
         }
 
-        .phone-text__minibox i {         
+        .phone-text__minibox i {
             font-size: 50px;
             color: #7634FA;
-            opacity: 0.4;
-            
-        }
+            opacity: 0.6;
 
+        }
 
         .invite-box {
             margin-right: 5%;
@@ -160,12 +225,43 @@
             text-decoration-color: #7634FA;
         }
 
-        .form-floating mb-3:focus-within input {
+        .col:focus-within input {
             width: 10vw;
         }
 
-        .form-floating mb-3 {
+        .col {
             margin-bottom: 1%;
+        }
+
+        #team_img{
+            display: grid;
+            grid-template-rows: 50% 50%;
+            grid-template-columns: 50% 50%;
+        }
+
+        @media (max-width: 1250px) {
+
+            .text-box h1 {
+                font-size: 4vw;
+                font-weight:100;
+                text-decoration: underline;
+                text-decoration-color: #7634FA;
+            }
+
+            .text-box h4 {
+                font-size:9vw;
+                font-weight:500;
+            }
+
+            .title-box {
+                width: 90%;
+                height: 70vh;
+                /* background-color: lightcoral; */
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
         }
 
         @media (max-width: 1080px) {
@@ -178,6 +274,17 @@
         }
 
         @media (max-width: 878px) {
+
+            .title-box {
+                    width: 90%;
+                    height: 50vh;
+                    /* background-color: lightcoral; */
+                    margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+            }
+
             #clickBtn {
                 display: flex;
                 justify-content: center;
@@ -192,12 +299,13 @@
             }
 
             .team-intro {
-                flex-wrap: wrap;
-            }
+                flex-wrap:wrap;
 
-            .team-intro__text-box {
-                width: 50vh;
-                height: 10vh;
+                width:100%;
+            height: auto;
+            /* margin-top: 8%; */
+            display: flex;
+            margin-left: 0;
             }
 
             .team-intro__imgbox {
@@ -213,25 +321,114 @@
                 border-radius: 15%;
             }
 
-            .intro__text-box__phone {
-                height: 300px;
-                margin-bottom: 10%;
+            .member_img_list {
+                display:flex;
+                list-style:none;
+
+                width:80vw;
+                height:130vw;
+
+                margin:0 auto;
+
+            display:flex;
+            justify-content: space-between;
+
+            position: relative;
             }
-            .phone-text__box {
-                height: 225px;
+
+            .list_1, .list_2 {
+                height:auto;
             }
-            .phone-text__minibox {
-                height: 175px;
-            }
-            .phone-text__minibox i {
-                position: relative;
-                bottom: 55%;
-                opacity: 0.2;
-            }
+
+        .list_1 input, .list_2 input {
+            width:100%;
+            height:50vw;
+            margin-bottom:20%;
+            background-color:lightgreen;
+
+            border-radius:20px;
+
+            background-image: url("/image/my_picture (2).jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .team-intro__imgbox {
+            width: 650px;
+            height: 600px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .team-intro__imgbox__1 input {
+            width: 250px;
+            height: 250px;
+            border-radius: 15%;
+            margin-right: 25px;
+        }
+
+
+        .team-intro__text-box {
+            width: 100%;
+            height: auto;
+            align-items:center;
+
+            margin:0;
+
+            text-align: center;
+        }
+
+        .intro__text-box__phone{
+            width: auto;
+            height: auto;
+        }
+
+        .phone-title {
+
+            width: auto;
+            height: auto;
+
+            margin-top:100px;
+        }
+
+        .phone-title h2 {
+            font-size:10vw;
+            font-weight:500;
+        }
+
+        .phone-text__box{
+            width: auto;
+            height: auto;
+
+        }
+
+        .phone-text__minibox {
+            width: auto;
+            height: auto;
+
+            margin-top:10%;
+        }
+
+        .phone-text__minibox h4 {
+            font-size: 3.4vw;
+            font-weight: 400;
+            color:#222;
+
+            margin-bottom:10px;
+        }
+
+        .phone-text__minibox i {
+            font-size: 50px;
+            color: #7634FA;
+            opacity: 0.6;
+
+        }
 
 
             .invite-box {
-                margin-top: 50%;
+                margin-top: 20%;
                 margin-bottom: 2%;
             }
 
@@ -245,6 +442,9 @@
         .ip_input {
             display: flex;
             flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
             width: 100%;
         }
 
@@ -271,19 +471,28 @@
             margin-right: 5%;
             margin-left: 5%;
 
+
         }
 
         .pw_box {
-            margin-left: 5%;
+            margin-left: 79%;
+            margin-top: -5%;
+
+            height: 36px;
+
+            display: flex;
         }
 
         .btn-outline-secondary {
             margin-left: 95%;
-            margin-top: -5.2%;
+            margin-top: -3.1%;
             display: flex;
         }
 
     </style>
+    <!-- AOS 라이브러리 불러오기-->
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
 
         //메인 페이지 팀 사진 부분
@@ -300,19 +509,34 @@
                 data: {},
                 success: function (response) {
                     let rows = response['user']
-                    for (let i = 0; i < rows.length; i++) {
+                    for (let i = 0; i < rows.length-2; i++) {
                         let profile_img = rows[i]['profile_img']
+                        let profile_img1 = rows[i+2]['profile_img']
                         let key = rows[i]['key']
-
+                        let key1 = rows[i+2]['key']
+                        console.log(key1)
 
                         let temp_html = ` <div class="team-intro__imgbox__1">
                                                   <form action="http://localhost:5000/detail">
-                                                  <input type="text" name="key" value="${key}" style="display: none">
+                                                      <input type="text" name="key" value="${key}" style="display: none">
                                                       <input type="image" src="${profile_img}">
                                                   </form>
                                               </div>`
 
-                        $('#team_img').append(temp_html)
+                        let temp_html1 = ` <div class="list_1">
+                                               <form action="http://localhost:5000/detail">
+                                                      <input type="text" name="key" value="${key}" style="display: none">
+                                                      <input type="image" src="${profile_img}">
+                                               </form>
+                                           </div>
+                                           <div class="list_2">
+                                               <form action="http://localhost:5000/detail">
+                                                      <input type="text" name="key" value="${key1}" style="display: none">
+                                                      <input type="image" src="${profile_img1}">
+                                               </form>
+                                           </div>`
+
+                        $('#team_img').append(temp_html1)
                     }
                 }
             });
@@ -351,7 +575,7 @@
                     // console.log(response)
                     let rows = response['cheer']
                     for (let i = 0; i < rows.length; i++) {
-                        let createPwdInput = $("<input class='pw_box'>")
+                        let createPwdInput = $("<input class='pw_box' placeholder='비밀번호' >")
                         createPwdInput.attr("id", "pwd" + i)
                         createPwdInput.attr("type", "password")
                         console.log(createPwdInput)
@@ -367,12 +591,12 @@
                                                 <footer class="blockquote-footer">${nickname}</footer>
                                             </blockquote>
                                         </div>
-                                        <div>
+                                        <div class="card-body2">
                                             <button type="button" class="btn btn-outline-secondary" onclick="delete_cheers('pwd'+${i}, ${num})">✖</button>
                                         </div>
                                     </div>`
                         $('#comment-list').append(temp_html)
-                        $('#comment-list').append(createPwdInput)
+                        $('.card-body2').prepend(createPwdInput)
                     }
                 }
             });
@@ -396,50 +620,82 @@
 </head>
 <body>
 <div id="body-size">
+
+    <div id="clickBtn">
+        <input type="button" value="night" onclick="
+
+                        let target = document.querySelector('body');
+
+                        if(this.value === 'night'){
+                            target.style.backgroundColor='black';
+                            target.style.color = 'white';
+                            this.value = 'day';
+                        } else{
+                            target.style.backgroundColor='white';
+                            target.style.color='black';
+                            this.value = 'night';
+        } ">
+    </div>
+
     <div class="title-box">
+
         <div class="text-box">
-            <div id="clickBtn">
-                <h1>RunWay<i class="fa-solid fa-plane fa-1x"></i></h1>
-                <input type="button" value="night" onclick="
 
-                    let target = document.querySelector('body');
-
-                    if(this.value === 'night'){
-                        target.style.backgroundColor='black';
-                        target.style.color = 'white';
-                        this.value = 'day';
-                    } else{
-                        target.style.backgroundColor='white';
-                        target.style.color='black';
-                        this.value = 'night';
-                    } ">
+            <div id="clickBtn2">
+                <h1  data-aos="fade-down" data-aos-offset="200" data-aos-easing="ease-out-cubic" data-aos-duration="1400" data-aos-delay="0">RunWay<i class="fa-solid fa-plane fa-1x"></i></h1>
             </div>
+
             <br>
-            <h4>개발자를 향해 나아가는 대원들!</h4>
+
+            <h4  data-aos="fade-down" data-aos-offset="200" data-aos-easing="ease-out-cubic" data-aos-duration="1400" data-aos-delay="1000">개발자를 향해</br>
+                나아가는 대원들!</h4>
         </div>
     </div>
 
-    <div class="team-intro">
-        <div class="team-intro__imgbox" id="team_img">
-        </div>
+    <script>
+        AOS.init(); // 자바스크립트로 init()을 해야 동작한다.
+    </script>
 
-        <div class="team-intro__text-box">
-            <div class="intro__text-box__phone">
-                <div class="phone-title">
-                    <h2>TEAM Intro</h2><br>
-                </div>
-                <div class="phone-text__box">
-                    <div class="phone-text__minibox">
-                        <h4>팀원들과 소통이 잘 돼요</h4><br>
-                        <h4>시간 약속을 잘 지켜요</h4><br>
-                        <h4>늦은 시간까지 공부해요</h4>
-                        <i class="bi bi-airplane"></i>
+        <div class="team-intro">
+            <!-- <div class="team-intro__imgbox" id="team_img"> -->
+
+            <!-- 그냥 이미지 박스 원하는 모양으로 임의로 디자인해본 것
+            그냥 상자의 크기나 둥글기가 이랬으면 좋겠다 하는 예시
+            안 쓸 거면 .member_img_list를 지우고 .team-intro__imgbox를 다시 쓰면 됨-->
+            <div id="team_img" class="member_img_list" data-aos="fade-down" data-aos-offset="200" data-aos-easing="ease-out-cubic" data-aos-duration="1400" data-aos-delay="400">
+
+<!--                <ul class="list_1">-->
+<!--                    <li><a href="#"></a></li>-->
+<!--                    <li><a href="#"></a></li>-->
+<!--                </ul>-->
+
+<!--                <ul class="list_2">-->
+<!--                    <li><a href="#"></a></li>-->
+<!--                    <li><a href="#"></a></li>-->
+<!--                </ul>-->
+
+            </div>
+            <!-- memver_img_list -->
+
+            <div class="team-intro__text-box">
+                <div class="intro__text-box__phone">
+                    <div class="phone-title">
+                        <h2>TEAM Intro</h2><br>
+                    </div>
+                    <div class="phone-text__box">
+                        <div class="phone-text__minibox">
+                            <h4>팀원들과 소통이 잘 돼요</h4><br>
+                            <h4>시간 약속을 잘 지켜요</h4><br>
+                            <h4>늦은 시간까지 공부해요</h4>
+                            <i class="bi bi-airplane"></i>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
-    </div>
+
 
     <div class="invite-layout">
         <div class="invite-box">

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b1be637-3e94-47d1-8a58-6bfb38e7baac" name="변경" comment="" />
+    <list default="true" id="8b1be637-3e94-47d1-8a58-6bfb38e7baac" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +64,7 @@
       <recent name="C:\Users\klodv\OneDrive\바탕 화면\sparta\teampro" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\spa_team\sparta_mini\templates" />
       <recent name="C:\Users\klodv\OneDrive\바탕 화면\새 폴더 (3)\sparta_mini\static\video" />
       <recent name="C:\Users\klodv\OneDrive\바탕 화면\새 폴더 (3)\sparta_mini\templates" />
       <recent name="C:\Users\klodv\OneDrive\바탕 화면\sparta\teampro\static" />
@@ -108,7 +112,7 @@
       <workItem from="1667347173737" duration="10561000" />
       <workItem from="1667375474093" duration="5913000" />
       <workItem from="1667434023725" duration="4732000" />
-      <workItem from="1667442841975" duration="12746000" />
+      <workItem from="1667442841975" duration="19879000" />
     </task>
     <servers />
   </component>
