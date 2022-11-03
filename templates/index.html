@@ -471,21 +471,27 @@
             margin-right: 5%;
             margin-left: 5%;
 
+            z-index: 9;
+
 
         }
 
         .pw_box {
-            margin-left: 79%;
-            margin-top: -5%;
+            margin-left: 81%;
+            margin-top: 1.7%;
+            margin-bottom: -3.5%;
+
+            z-index: 99;
 
             height: 36px;
 
             display: flex;
+            position: relative;
         }
 
         .btn-outline-secondary {
             margin-left: 95%;
-            margin-top: -3.1%;
+            margin-top: -3.5%;
             display: flex;
         }
 
@@ -595,8 +601,12 @@
                                             <button type="button" class="btn btn-outline-secondary" onclick="delete_cheers('pwd'+${i}, ${num})">✖</button>
                                         </div>
                                     </div>`
+                        $('#comment-list').append(createPwdInput)
                         $('#comment-list').append(temp_html)
-                        $('.card-body2').prepend(createPwdInput)
+
+
+
+                        // $('#delete_pw').append(createPwdInput)
                     }
                 }
             });
@@ -604,7 +614,7 @@
 
         function delete_cheers(id_val, num) {
             let del_pwd = $(`#${id_val}`).val()
-            // console.log(del_pwd)
+            console.log(del_pwd)
 
             $.ajax({
                 type: "DELETE",
@@ -627,14 +637,14 @@
                         let target = document.querySelector('body');
                         let dayNight = document.querySelector('.inputDayNight');
                         let inviteLabel = document.querySelector('.label');
-                        let targetInvite = document.querySelector('.card');
+                        let targetInvite = document.querySelector('.mycards');
 
                         if(dayNight.value === 'night'){
                             target.style.backgroundColor='black';
                             target.style.color = 'white';
                             inviteLabel.style.color = 'black';
                             // class명 card 글씨 색상 변경 부분입니다
-                            // targetInvite.style.color = 'black'; 
+                            targetInvite.style.color = 'black';
                             dayNight.value = 'day';
                         } else{
                             target.style.backgroundColor='white';
@@ -732,8 +742,9 @@
         </div>
 
 
-        <div class="mycards" id="comment-list">
-        </div>
+        <div class="mycards" id="comment-list"></div>
+
+
     </div>
 </div>
 </body>

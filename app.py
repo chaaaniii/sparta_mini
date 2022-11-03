@@ -20,7 +20,9 @@ def cheer_post():
     pwd_receive = request.form.get('pwd_give')
 
     cheer_list = list(db.cheerpost.find({}, {'_id': False}))
-    count = len(cheer_list) + 1
+    count = len(cheer_list)
+
+
 
     doc = {
         'chnum':count,
