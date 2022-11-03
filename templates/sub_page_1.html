@@ -79,14 +79,14 @@
                 justify-content:center;
               }
 
-              #text_wrap>h1 {
+              #text_wrap > h1 {
                 font-size:60px;
                 font-weight:600;
 
                 transition-duration:0.5s;
               }
 
-              #text_wrap>h1:hover {
+              #text_wrap > h1:hover {
                 color:lightseagreen;
               }
 
@@ -362,6 +362,23 @@
    
         </style>
         <script>
+            function dayNight() {
+
+            let inputValue = document.querySelector('.inputDayNight');
+            let target = document.querySelector('body');
+            let inputLabel = document.querySelector('.label');
+            let commentLabel = document.querySelector('.mypost');    
+                    if(inputValue.value === 'night'){
+                        target.style.backgroundColor='black';
+                        target.style.color = 'white';
+                        commentLabel.style.color = 'black'; // comment 라벨 글씨 값 변경
+                        inputValue.value = 'day';
+                    } 
+                    else {
+                        target.style.backgroundColor='white';
+                        target.style.color='black';
+                        inputValue.value = 'night';
+                    } }
 
             //param 잘라서 필요한 정보 추출
 
@@ -532,10 +549,9 @@
         <div id="section_1" class="section">
 
             <div id="text_wrap">
-
-                <h1>Profile</h1>
-                <p>Let me introduce myself.</p>
-
+                    <h1>Profile</h1>
+                    <input type="button" value="night" class="inputDayNight" onclick="dayNight()">
+                    <p>Let me introduce myself.</p>                
             </div>
             <!-- text_wrap end -->
 

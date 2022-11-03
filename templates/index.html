@@ -622,18 +622,24 @@
 <div id="body-size">
 
     <div id="clickBtn">
-        <input type="button" value="night" onclick="
+        <input type="button" value="night" class="inputDayNight" onclick="
 
                         let target = document.querySelector('body');
+                        let dayNight = document.querySelector('.inputDayNight');
+                        let inviteLabel = document.querySelector('.label');
+                        let targetInvite = document.querySelector('.card');
 
-                        if(this.value === 'night'){
+                        if(dayNight.value === 'night'){
                             target.style.backgroundColor='black';
                             target.style.color = 'white';
-                            this.value = 'day';
+                            inviteLabel.style.color = 'black';
+                            // class명 card 글씨 색상 변경 부분입니다
+                            // targetInvite.style.color = 'black'; 
+                            dayNight.value = 'day';
                         } else{
                             target.style.backgroundColor='white';
                             target.style.color='black';
-                            this.value = 'night';
+                            dayNight.value = 'night';
         } ">
     </div>
 
@@ -718,7 +724,7 @@
                     <div class="form-floating">
                     <textarea class="form-control" placeholder="Leave a comment here" id="comment"
                               style="height: 100px" onresize="none" required minlength="5"></textarea>
-                        <label for="comment">내용을 입력하세요</label>
+                        <label class="label" for="comment">내용을 입력하세요</label>
                     </div>
                     <button onclick="save_cheers()" type="button" class="btn btn-primary">글 남기기</button>
                 </div>
