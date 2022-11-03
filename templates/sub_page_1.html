@@ -367,11 +367,13 @@
             let inputValue = document.querySelector('.inputDayNight');
             let target = document.querySelector('body');
             let inputLabel = document.querySelector('.label');
-            let commentLabel = document.querySelector('.mypost');    
+            let commentLabel = document.querySelector('.mypost');
+            let commentCard = document.querySelector('.mycards');    
                     if(inputValue.value === 'night'){
                         target.style.backgroundColor='black';
                         target.style.color = 'white';
                         commentLabel.style.color = 'black'; // comment 라벨 글씨 값 변경
+                        commentCard.style.color = 'black';
                         inputValue.value = 'day';
                     } 
                     else {

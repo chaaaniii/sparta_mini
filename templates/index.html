@@ -198,11 +198,11 @@
             margin-top:10%;
         }
 
+        
         .phone-text__minibox h4 {
             font-size: 1.8vw;
             font-weight: 400;
-            color:#222;
-
+            
             margin-bottom:10px;
         }
 
@@ -414,7 +414,7 @@
         .phone-text__minibox h4 {
             font-size: 3.4vw;
             font-weight: 400;
-            color:#222;
+            color: black;
 
             margin-bottom:10px;
         }
@@ -627,14 +627,16 @@
                         let target = document.querySelector('body');
                         let dayNight = document.querySelector('.inputDayNight');
                         let inviteLabel = document.querySelector('.label');
-                        let targetInvite = document.querySelector('.card');
+                        let targetInvite = document.querySelector('.mycards');
+                        let temaIntroText = document.querySelector('.phone-text__minibox');
 
                         if(dayNight.value === 'night'){
                             target.style.backgroundColor='black';
                             target.style.color = 'white';
                             inviteLabel.style.color = 'black';
+                            //temaIntroText.style.color = 'white';
                             // class명 card 글씨 색상 변경 부분입니다
-                            // targetInvite.style.color = 'black'; 
+                            targetInvite.style.color = 'black'; 
                             dayNight.value = 'day';
                         } else{
                             target.style.backgroundColor='white';
