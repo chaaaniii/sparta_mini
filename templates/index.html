@@ -112,11 +112,11 @@
             text-decoration-color: #7634FA;
         }
 
-        .col:focus-within input {
+        .form-floating mb-3:focus-within input {
             width: 10vw;
         }
 
-        .col {
+        .form-floating mb-3 {
             margin-bottom: 1%;
         }
 
@@ -169,11 +169,55 @@
                 margin-top: 50%;
                 margin-bottom: 2%;
             }
+
+            #name, #pwdinput {
+                width: 45%;
+                margin-left: 10px;
+            }
         }
 
-        .mycards{
-            margin: 20px auto 0 auto;
+
+        .ip_input {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
         }
+
+        #name, #pwdinput {
+            width: 80%;
+            margin-left: 10px;
+
+        }
+
+        .idpwd_box {
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+
+        .mypost {
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+
+            border: 1px solid rgb(160, 160, 160);
+        }
+
+        .card {
+            margin-right: 5%;
+            margin-left: 5%;
+
+        }
+
+        .pw_box {
+            margin-left: 5%;
+        }
+
+        .btn-outline-secondary {
+            margin-left: 95%;
+            margin-top: -5.2%;
+            display: flex;
+        }
+
     </style>
     <script>
 
@@ -216,11 +260,11 @@
             let _pwd = $("#pwdinput").val()
 
             console.log(nickname, comment, _pwd)
-            if(nickname == "") {
+            if (nickname == "") {
                 alert('이름을 입력하세요')
-            }else if(comment = "" || comment.length < 5){
+            } else if (comment.length < 5) {
                 alert('5자 이상 내용을 입력하세요')
-            }else{
+            } else {
                 $.ajax({
                     type: 'POST',
                     url: '/cheers',
@@ -242,13 +286,15 @@
                     // console.log(response)
                     let rows = response['cheer']
                     for (let i = 0; i < rows.length; i++) {
-                        let createPwdInput = $("<input>")
-                        createPwdInput.attr("id","pwd"+i)
-                        createPwdInput.attr("type","password")
+                        let createPwdInput = $("<input class='pw_box'>")
+                        createPwdInput.attr("id", "pwd" + i)
+                        createPwdInput.attr("type", "password")
+                        console.log(createPwdInput)
                         let num = rows[i]['chnum']
                         let nickname = rows[i]['nickname']
                         let comment = rows[i]['cheer']
                         let db_pwd = rows[i]['saved_pwd']
+
                         let temp_html = `<div class="card">
                                         <div class="card-body">
                                             <blockquote class="blockquote mb-0">
@@ -257,7 +303,6 @@
                                             </blockquote>
                                         </div>
                                         <div>
-<!--                                            <button type="button" class="btn btn-outline-secondary" onclick="delete_cheers('pwd'+i)"><span class="tooltip">삭제</span>✖</button>-->
                                             <button type="button" class="btn btn-outline-secondary" onclick="delete_cheers('pwd'+${i}, ${num})">✖</button>
                                         </div>
                                     </div>`
@@ -268,14 +313,14 @@
             });
         }
 
-        function delete_cheers(id_val, num){
+        function delete_cheers(id_val, num) {
             let del_pwd = $(`#${id_val}`).val()
             // console.log(del_pwd)
 
             $.ajax({
                 type: "DELETE",
                 url: "/cheers",
-                data: {compPwd_give:del_pwd, num_give:num},
+                data: {compPwd_give: del_pwd, num_give: num},
                 success: function (response) {
                     alert(response["msg"])
                     window.location.reload()
@@ -325,27 +370,33 @@
 
     <div class="invite-layout">
         <div class="invite-box">
-            <h2>INVITE</h2>
+            <h1>INVITE</h1>
+            <p>Please leave your footprints...</p>
             <form>
-                <div class="col">
-                    <input type="text" class="form-control" id="name" placeholder="NickName" required>
-
-                </div>
-                <div class="form-floating">
+                <div class="mypost">
+                    <div class="idpwd_box">
+                        <div class="form-floating mb-3">
+                            <p class="ip_input">닉네임 : <input type="text" class="form-control" id="name"
+                                                             placeholder="닉네임을 입력해주세요."
+                                                             required></p>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <P class="ip_input">비밀번호 : <input type="password" name="password" id="pwdinput"
+                                                              class="form-control"
+                                                              placeholder="새 비밀번호 입력해주세요."></P>
+                        </div>
+                    </div>
+                    <div class="form-floating">
                     <textarea class="form-control" placeholder="Leave a comment here" id="comment"
-                              style="height: 100px" required minlength="5"></textarea>
-                    <label for="comment">내용을 입력하세요</label>
+                              style="height: 100px" onresize="none" required minlength="5"></textarea>
+                        <label for="comment">내용을 입력하세요</label>
+                    </div>
+                    <button onclick="save_cheers()" type="button" class="btn btn-primary">글 남기기</button>
                 </div>
-                <div class="pwd-input">
-                    <input type="password" name="password" id="pwdinput" placeholder="새 비밀번호 입력">
-                </div>
-<!--                <div class="mb-3 form-check">-->
-<!--                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>-->
-<!--                    <label class="form-check-label" for="exampleCheck1">삭제 구현이 안됐습니다. 작성하시겠습니까?</label>-->
-<!--                </div>-->
-                <button onclick="save_cheers()" type="submit" class="btn btn-primary">글 남기기</button>
             </form>
         </div>
+
+
         <div class="mycards" id="comment-list">
         </div>
     </div>
