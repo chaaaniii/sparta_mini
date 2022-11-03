@@ -416,6 +416,7 @@
             let target = document.querySelector('body');
             let inputLabel = document.querySelector('.label');
             let commentLabel = document.querySelector('.mypost');
+<<<<<<< HEAD
             if (inputValue.value === 'night') {
                 target.style.backgroundColor = 'black';
                 target.style.color = 'white';
@@ -427,6 +428,21 @@
                 inputValue.value = 'night';
             }
         }
+=======
+            let commentCard = document.querySelector('.mycards');    
+                    if(inputValue.value === 'night'){
+                        target.style.backgroundColor='black';
+                        target.style.color = 'white';
+                        commentLabel.style.color = 'black'; // comment 라벨 글씨 값 변경
+                        commentCard.style.color = 'black';
+                        inputValue.value = 'day';
+                    } 
+                    else {
+                        target.style.backgroundColor='white';
+                        target.style.color='black';
+                        inputValue.value = 'night';
+                    } }
+>>>>>>> 1847bb81c50b7d395fc5ce79b9487ea2112b1020
 
         //param 잘라서 필요한 정보 추출
 
