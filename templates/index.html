@@ -215,15 +215,22 @@
             let comment = $('#comment').val()
             let _pwd = $("#pwdinput").val()
 
-            $.ajax({
-                type: 'POST',
-                url: '/cheers',
-                data: {nickname_give: nickname, cheer_give: comment, pwd_give:_pwd},
-                success: function (response) {
-                    alert(response['msg'])
-                    window.location.reload()
-                }
-            })
+            console.log(nickname, comment, _pwd)
+            if(nickname == "") {
+                alert('이름을 입력하세요')
+            }else if(comment = "" || comment.length < 5){
+                alert('5자 이상 내용을 입력하세요')
+            }else{
+                $.ajax({
+                    type: 'POST',
+                    url: '/cheers',
+                    data: {nickname_give: nickname, cheer_give: comment, pwd_give: _pwd},
+                    success: function (response) {
+                        alert(response['msg'])
+                        window.location.reload()
+                    }
+                })
+            }
         }
 
         function show_cheers() {
@@ -235,10 +242,13 @@
                     // console.log(response)
                     let rows = response['cheer']
                     for (let i = 0; i < rows.length; i++) {
+                        let createPwdInput = $("<input>")
+                        createPwdInput.attr("id","pwd"+i)
+                        createPwdInput.attr("type","password")
                         let num = rows[i]['chnum']
                         let nickname = rows[i]['nickname']
                         let comment = rows[i]['cheer']
-                        {#let db_pwd = rows[i]['saved_pwd']#}
+                        let db_pwd = rows[i]['saved_pwd']
                         let temp_html = `<div class="card">
                                         <div class="card-body">
                                             <blockquote class="blockquote mb-0">
@@ -247,22 +257,25 @@
                                             </blockquote>
                                         </div>
                                         <div>
-                                            <button type="button" class="btn btn-outline-secondary" onclick="delete_cheers(${num})"><span class="tooltip">삭제</span>✖</button>
+<!--                                            <button type="button" class="btn btn-outline-secondary" onclick="delete_cheers('pwd'+i)"><span class="tooltip">삭제</span>✖</button>-->
+                                            <button type="button" class="btn btn-outline-secondary" onclick="delete_cheers('pwd'+${i}, ${num})">✖</button>
                                         </div>
                                     </div>`
                         $('#comment-list').append(temp_html)
+                        $('#comment-list').append(createPwdInput)
                     }
                 }
             });
         }
 
-        function delete_cheers(num){
-            let del_pwd = $('#pwd').val()
-            // console.log(num)
+        function delete_cheers(id_val, num){
+            let del_pwd = $(`#${id_val}`).val()
+            // console.log(del_pwd)
+
             $.ajax({
                 type: "DELETE",
                 url: "/cheers",
-                data: {chnum_give:num},
+                data: {compPwd_give:del_pwd, num_give:num},
                 success: function (response) {
                     alert(response["msg"])
                     window.location.reload()
@@ -315,21 +328,21 @@
             <h2>INVITE</h2>
             <form>
                 <div class="col">
-                    <input type="text" class="form-control" id="name" placeholder="NickName">
+                    <input type="text" class="form-control" id="name" placeholder="NickName" required>
 
                 </div>
                 <div class="form-floating">
                     <textarea class="form-control" placeholder="Leave a comment here" id="comment"
                               style="height: 100px" required minlength="5"></textarea>
-                    <label for="comment">글을 작성해주세요</label>
+                    <label for="comment">내용을 입력하세요</label>
                 </div>
                 <div class="pwd-input">
                     <input type="password" name="password" id="pwdinput" placeholder="새 비밀번호 입력">
                 </div>
-{#                <div class="mb-3 form-check">#}
-{#                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>#}
-{#                    <label class="form-check-label" for="exampleCheck1">삭제 구현이 안됐습니다. 작성하시겠습니까?</label>#}
-{#                </div>#}
+<!--                <div class="mb-3 form-check">-->
+<!--                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>-->
+<!--                    <label class="form-check-label" for="exampleCheck1">삭제 구현이 안됐습니다. 작성하시겠습니까?</label>-->
+<!--                </div>-->
                 <button onclick="save_cheers()" type="submit" class="btn btn-primary">글 남기기</button>
             </form>
         </div>

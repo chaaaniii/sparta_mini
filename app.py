@@ -3,6 +3,7 @@ app = Flask(__name__)
 
 from pymongo import MongoClient
 client = MongoClient('mongodb+srv://test:sparta@cluster0.2frhcdl.mongodb.net/Cluster0?retryWrites=true&w=majority')
+# 예재현 client = MongoClient('mongodb+srv://test:sparta@cluster0.afmxt02.mongodb.net/Cluster0?retryWrites=true&w=majority')
 db = client.dbsparta
 
 #메인 화면
@@ -37,10 +38,22 @@ def cheer_get():
 
 @app.route("/cheers", methods=["DELETE"])
 def cheer_delete():
-    num_receive = request.form.get('chnum_give')
-    # if(pwd_receive == comp_pwd):
-    db.cheerpost.delete_one({'chnum': int(num_receive)})
-    return jsonify({'msg': '삭제 완료!'})
+    cheer_list = list(db.cheerpost.find({}, {'_id': False}))
+    delNum_receive = request.form.get('num_give')
+    compPwd_receive = request.form.get('compPwd_give')
+    db_pwd = list(db.cheerpost.find({}, {'_id': False}))[int(delNum_receive)-1]['saved_pwd']
+
+    print('삭제할 방명록 번호:', delNum_receive, '생성할 때 넣은 비밀번호 :',db_pwd, '/ 삭제하려고 넣은 비밀번호 :',compPwd_receive)
+    if db_pwd == None :
+        db_pwd = ''
+    elif compPwd_receive == None :
+        compPwd_receive == ''
+
+    if db_pwd == compPwd_receive:
+        db.cheerpost.delete_one({'chnum': int(delNum_receive)})
+        return jsonify({'msg': '삭제 완료'})
+    else:
+        return jsonify({'msg': '비밀번호가 틀렸습니다'})
 
 # 팀원 상세 페이지
 
@@ -66,7 +79,7 @@ def comment_post():
     username_receive = request.form.get('username_give',False)
     comment_receive = request.form.get('comment_give',False)
 
-    print(member_no)
+    # print(member_no)
     comment_list = list(db.commentdb.find({}, {'_id': False}))
     count = len(comment_list) + 1
 
