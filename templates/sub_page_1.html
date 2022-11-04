@@ -15,15 +15,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <style>
 
+        .inputDayNight {
+            z-index:9999999;
+        }
+
         #direction_button {
             position: absolute;
             bottom: 10px;
+            right:0;
+
+            z-index:99999;
         }
 
         #scollTopButton {
             position: absolute;
             bottom: 130px;
-            left: 50px;
+            right: 50px;
 
             width:60px;
             height:60px;
@@ -33,7 +40,7 @@
         #scollDownButton {
             position: absolute;
             bottom: 50px;
-            left: 50px;
+            right: 50px;
 
             width:60px;
             height:60px;
@@ -328,6 +335,45 @@
             border: 1px solid #8d54fe;
         }
 
+        div#comment-list {
+            border: 1px solid rgba(0, 0, 0, .125);
+            border-radius: 0.25rem;
+            position: relative;
+        }
+
+        div#comment-list > .card {
+            position:relative;
+
+            border:none;
+            border-bottom:1px solid #ccc;
+
+            display:flex;
+            flex-direction:row;
+        }
+
+        .pw_box {
+            width:auto;
+            height:38px;
+            padding:10px;
+
+            border:1px solid #ccc;
+
+            box-sizing:border-box;
+            position: absolute;
+            right: 0;
+
+            margin-top:20px;
+            margin-right:90px;
+
+            z-index:999;
+        }
+
+        button.btn.btn-outline-secondary {
+            float: right;
+            margin-right: 20px;
+            margin-top: 20px;
+        }
+
         #backbtn {
             transition-duration: 0.5s;
             transition-property: background-color;
@@ -408,6 +454,19 @@
             margin: 50px auto 0 auto;
         }
 
+        .ip_input {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            width: 100%;
+        }
+
+        #pwdinput2 {
+            width: 80%;
+            margin-left: 10px;
+        }
     </style>
     <script>
         function dayNight() {
@@ -416,19 +475,6 @@
             let target = document.querySelector('body');
             let inputLabel = document.querySelector('.label');
             let commentLabel = document.querySelector('.mypost');
-<<<<<<< HEAD
-            if (inputValue.value === 'night') {
-                target.style.backgroundColor = 'black';
-                target.style.color = 'white';
-                commentLabel.style.color = 'black'; // comment 라벨 글씨 값 변경
-                inputValue.value = 'day';
-            } else {
-                target.style.backgroundColor = 'white';
-                target.style.color = 'black';
-                inputValue.value = 'night';
-            }
-        }
-=======
             let commentCard = document.querySelector('.mycards');    
                     if(inputValue.value === 'night'){
                         target.style.backgroundColor='black';
@@ -442,7 +488,7 @@
                         target.style.color='black';
                         inputValue.value = 'night';
                     } }
->>>>>>> 1847bb81c50b7d395fc5ce79b9487ea2112b1020
+
 
         //param 잘라서 필요한 정보 추출
 
@@ -540,11 +586,13 @@
         function save_comment(num) {
             let username = $('#username').val()
             let comment = $('#comment').val()
+            let compwd = $("#pwdinput2").val()
+            console.log('댓글 저장 체크',username, comment, '저장비번', compwd)
 
             $.ajax({
                 type: 'POST',
                 url: '/comments',
-                data: {memberNum_give: num, username_give: username, comment_give: comment},
+                data: {memberNum_give: num, username_give: username, comment_give: comment, compwd_give: compwd},
                 success: function (response) {
                     alert(response['msg'])
                     window.location.reload()
@@ -561,6 +609,10 @@
                 success: function (response) {
                     let rows = response['comments']
                     for (let i = 0; i < rows.length; i++) {
+                        let createPwdInput2 = $("<input class='pw_box' placeholder='비밀번호' >")
+                        createPwdInput2.attr("id", "compwd" + i)
+                        createPwdInput2.attr("type", "password")
+                        console.log(createPwdInput2)
                         let res_num = rows[i]['conum']
                         let comp_num = rows[i]['member_no']
                         let username = rows[i]['username']
@@ -574,9 +626,10 @@
                                                     </blockquote>
                                                 </div>
                                                 <div>
-                                                    <button type="button" class="btn btn-outline-secondary" onclick="delete_comments(${res_num})"><span class="tooltip"></span>삭제</button>
+                                                    <button type="button" class="btn btn-outline-secondary" onclick="delete_comments('compwd'+${i}, ${res_num})"><span class="tooltip"></span>삭제</button>
                                                 </div>
                                             </div>`
+                            $('#comment-list').append(createPwdInput2)
                             $('#comment-list').append(temp_html)
                         }
                     }
@@ -585,11 +638,14 @@
             });
         }
 
-        function delete_comments(num) {
+        function delete_comments(id_val2, num) {
+            let del_pwd2 = $(`#${id_val2}`).val()
+            console.log('댓글 삭제 체크', '댓글 넘버:',num, '저장비번:', del_pwd2)
+
             $.ajax({
                 type: "DELETE",
                 url: "/comments",
-                data: {conum_give: num},
+                data: {compPwd2_give: del_pwd2, conum_give: num},
                 success: function (response) {
                     alert(response["msg"])
                     window.location.reload()
@@ -826,7 +882,11 @@
                     <input type="email" class="form-control" id="username" placeholder="name@example.com">
                     <label for="username">닉네임</label>
                 </div>
-
+                <div class="form-floating mb-3">
+                            <P class="ip_input">비밀번호 : <input type="password" name="password" id="pwdinput2"
+                                                              class="form-control"
+                                                              placeholder="새 비밀번호 입력해주세요."></P>
+                </div>
                 <div class="form-floating">
                         <textarea class="form-control" placeholder="Leave a comment here" id="comment"
                                   style="height: 100px"></textarea>

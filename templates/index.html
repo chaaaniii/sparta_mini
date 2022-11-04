@@ -26,7 +26,7 @@
 
         body {
             /* display: flex; */
-            width:100%;
+            width: 100%;
             justify-content: center;
         }
 
@@ -34,42 +34,42 @@
             width: 100%;
             margin: 0 auto;
 
-            position:relative;
+            position: relative;
         }
 
         .title-box {
-           width:90%;
-            height:87vh;
+            width: 90%;
+            height: 87vh;
             /* background-color:lightcoral; */
-            margin:0 auto;
+            margin: 0 auto;
 
-            display:flex;
+            display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .text-box {
-            width:100%;
+            width: 100%;
         }
 
         .text-box h1 {
             font-size: 3.2vw;
-            font-weight:100;
+            font-weight: 100;
             text-decoration: underline;
             text-decoration-color: #7634FA;
         }
 
         .text-box h4 {
-            font-size:7vw;
-            font-weight:500;
+            font-size: 7vw;
+            font-weight: 500;
         }
 
         #clickBtn {
-            float:right;
+            float: right;
 
-            position:absolute;
-            right:2%;
-            top:2%;
+            position: absolute;
+            right: 2%;
+            top: 2%;
         }
 
         .fa-plane {
@@ -96,34 +96,34 @@
         }
 
         .member_img_list {
-            list-style:none;
+            list-style: none;
 
-            width:44vw;
-            height:70vw;
+            width: 44vw;
+            height: 70vw;
 
-            display:flex;
+            display: flex;
             justify-content: space-between;
 
             position: relative;
-            }
+        }
 
         .list_1, .list_2 {
-            width:calc(100% - 10%);
-            height:90%;
+            width: calc(100% - 10%);
+            height: 90%;
 
-            list-style:none;
+            list-style: none;
 
-            padding:0px;
-            margin:0px;
+            padding: 0px;
+            margin: 0px;
         }
 
         .list_1 input, .list_2 input {
-            width:100%;
-            height:30vw;
-            margin-bottom:20%;
-            background-color:lightgreen;
+            width: 100%;
+            height: 30vw;
+            margin-bottom: 20%;
+            background-color: lightgreen;
 
-            border-radius:20px;
+            border-radius: 20px;
 
             background-repeat: no-repeat;
             background-size: cover;
@@ -131,16 +131,16 @@
         }
 
         .list_1 input:last-child, .list_2 input:last-child {
-            margin-bottom:0;
+            margin-bottom: 0;
         }
 
         .list_1 {
-            position:relative;
+            position: relative;
         }
 
         .list_2 {
-            position:relative;
-            top:100px;
+            position: relative;
+            top: 100px;
         }
 
         .team-intro__imgbox {
@@ -162,12 +162,12 @@
         .team-intro__text-box {
             width: auto;
             height: auto;
-            align-items:center;
+            align-items: center;
 
-            margin-left:7%;
+            margin-left: 7%;
         }
 
-        .intro__text-box__phone{
+        .intro__text-box__phone {
             width: auto;
             height: auto;
         }
@@ -177,15 +177,15 @@
             width: auto;
             height: auto;
 
-            margin-top:160px;
+            margin-top: 160px;
         }
 
         .phone-title h2 {
-            font-size:6vw;
-            font-weight:500;
+            font-size: 6vw;
+            font-weight: 500;
         }
 
-        .phone-text__box{
+        .phone-text__box {
             width: auto;
             height: auto;
 
@@ -195,15 +195,15 @@
             width: auto;
             height: auto;
 
-            margin-top:10%;
+            margin-top: 10%;
         }
 
-        
+
         .phone-text__minibox h4 {
             font-size: 1.8vw;
             font-weight: 400;
-            
-            margin-bottom:10px;
+
+            margin-bottom: 10px;
         }
 
         .phone-text__minibox i {
@@ -233,222 +233,23 @@
             margin-bottom: 1%;
         }
 
-        #team_img{
+        #team_img {
             display: grid;
             grid-template-rows: 50% 50%;
             grid-template-columns: 50% 50%;
         }
 
-        @media (max-width: 1250px) {
-
-            .text-box h1 {
-                font-size: 4vw;
-                font-weight:100;
-                text-decoration: underline;
-                text-decoration-color: #7634FA;
-            }
-
-            .text-box h4 {
-                font-size:9vw;
-                font-weight:500;
-            }
-
-            .title-box {
-                width: 90%;
-                height: 70vh;
-                /* background-color: lightcoral; */
-                margin: 0 auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 1080px) {
-
-            .team-intro__imgbox img {
-                width: 200px;
-                height: 200px;
-                border-radius: 15%;
-            }
-        }
-
-        @media (max-width: 878px) {
-
-            .title-box {
-                    width: 90%;
-                    height: 50vh;
-                    /* background-color: lightcoral; */
-                    margin: 0 auto;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-            }
-
-            #clickBtn {
-                display: flex;
-                justify-content: center;
-            }
-
-            #clickBtn input {
-                margin-left: 5%;
-            }
-
-            .text-box {
-                text-align: center;
-            }
-
-            .team-intro {
-                flex-wrap:wrap;
-
-                width:100%;
-            height: auto;
-            /* margin-top: 8%; */
-            display: flex;
-            margin-left: 0;
-            }
-
-            .team-intro__imgbox {
-                display: flex;
-                justify-content: center;
-
-            }
-
-            .team-intro__imgbox img {
-                margin-top: 0;
-                width: 250px;
-                height: 250px;
-                border-radius: 15%;
-            }
-
-            .member_img_list {
-                display:flex;
-                list-style:none;
-
-                width:80vw;
-                height:130vw;
-
-                margin:0 auto;
-
-            display:flex;
-            justify-content: space-between;
-
-            position: relative;
-            }
-
-            .list_1, .list_2 {
-                height:auto;
-            }
-
-        .list_1 input, .list_2 input {
-            width:100%;
-            height:50vw;
-            margin-bottom:20%;
-            background-color:lightgreen;
-
-            border-radius:20px;
-
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .team-intro__imgbox {
-            width: 650px;
-            height: 600px;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-
-        .team-intro__imgbox__1 input {
-            width: 250px;
-            height: 250px;
-            border-radius: 15%;
-            margin-right: 25px;
-        }
-
-
-        .team-intro__text-box {
-            width: 100%;
-            height: auto;
-            align-items:center;
-
-            margin:0;
-
-            text-align: center;
-        }
-
-        .intro__text-box__phone{
-            width: auto;
-            height: auto;
-        }
-
-        .phone-title {
-
-            width: auto;
-            height: auto;
-
-            margin-top:100px;
-        }
-
-        .phone-title h2 {
-            font-size:10vw;
-            font-weight:500;
-        }
-
-        .phone-text__box{
-            width: auto;
-            height: auto;
-
-        }
-
-        .phone-text__minibox {
-            width: auto;
-            height: auto;
-
-            margin-top:10%;
-        }
-
-        .phone-text__minibox h4 {
-            font-size: 3.4vw;
-            font-weight: 400;
-            color: black;
-
-            margin-bottom:10px;
-        }
-
-        .phone-text__minibox i {
-            font-size: 50px;
-            color: #7634FA;
-            opacity: 0.6;
-
-        }
-
-
-            .invite-box {
-                margin-top: 20%;
-                margin-bottom: 2%;
-            }
-
-            #name, #pwdinput {
-                width: 45%;
-                margin-left: 10px;
-            }
-        }
-
-
         .ip_input {
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            /*justify-content: center;*/
             align-items: center;
 
             width: 100%;
         }
 
         #name, #pwdinput {
-            width: 80%;
+            width: 85%;
             margin-left: 10px;
 
         }
@@ -494,10 +295,274 @@
             display: flex;
         }
 
+        #post-btn {
+            transition-duration: 0.5s;
+            transition-property: background-color;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+
+            margin: 25px auto 0 auto;
+        }
+
+        #post-btn:hover {
+            background-color: #8d54fe;
+            border: 1px solid #8d54fe;
+        }
+
+        @media (max-width: 1250px) {
+
+            .text-box h1 {
+                font-size: 4vw;
+                font-weight: 100;
+                text-decoration: underline;
+                text-decoration-color: #7634FA;
+            }
+
+            .text-box h4 {
+                font-size: 9vw;
+                font-weight: 500;
+            }
+
+            .title-box {
+                width: 90%;
+                height: 70vh;
+                /* background-color: lightcoral; */
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 1080px) {
+
+            .team-intro__imgbox img {
+                width: 200px;
+                height: 200px;
+                border-radius: 15%;
+            }
+        }
+
+        @media (max-width: 878px) {
+
+            .title-box {
+                width: 90%;
+                height: 50vh;
+                /* background-color: lightcoral; */
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            #clickBtn {
+                display: flex;
+                justify-content: center;
+            }
+
+            #clickBtn input {
+                margin-left: 5%;
+            }
+
+            .text-box {
+                text-align: center;
+            }
+
+            .team-intro {
+                flex-wrap: wrap;
+
+                width: 100%;
+                height: auto;
+                /* margin-top: 8%; */
+                display: flex;
+                margin-left: 0;
+            }
+
+            .team-intro__imgbox {
+                display: flex;
+                justify-content: center;
+
+            }
+
+            .team-intro__imgbox img {
+                margin-top: 0;
+                width: 250px;
+                height: 250px;
+                border-radius: 15%;
+            }
+
+            .member_img_list {
+                display: flex;
+                list-style: none;
+
+                width: 80vw;
+                height: 130vw;
+
+                margin: 0 auto;
+
+                display: flex;
+                justify-content: space-between;
+
+                position: relative;
+            }
+
+            .list_1, .list_2 {
+                height: auto;
+            }
+
+            .list_1 input, .list_2 input {
+                width: 100%;
+                height: 50vw;
+                margin-bottom: 20%;
+                background-color: lightgreen;
+
+                border-radius: 20px;
+
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .team-intro__imgbox {
+                width: 650px;
+                height: 600px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .team-intro__imgbox__1 input {
+                width: 250px;
+                height: 250px;
+                border-radius: 15%;
+                margin-right: 25px;
+            }
+
+
+            .team-intro__text-box {
+                width: 100%;
+                height: auto;
+                align-items: center;
+
+                margin: 0;
+
+                text-align: center;
+            }
+
+            .intro__text-box__phone {
+                width: auto;
+                height: auto;
+            }
+
+            .phone-title {
+
+                width: auto;
+                height: auto;
+
+                margin-top: 100px;
+            }
+
+            .phone-title h2 {
+                font-size: 10vw;
+                font-weight: 500;
+            }
+
+            .phone-text__box {
+                width: auto;
+                height: auto;
+
+            }
+
+            .phone-text__minibox {
+                width: auto;
+                height: auto;
+
+                margin-top: 10%;
+            }
+
+            .phone-text__minibox h4 {
+                font-size: 3.4vw;
+                font-weight: 400;
+                color: black;
+
+                margin-bottom: 10px;
+            }
+
+            .phone-text__minibox i {
+                font-size: 50px;
+                color: #7634FA;
+                opacity: 0.6;
+
+            }
+
+
+            .invite-box {
+                margin-top: 20%;
+                margin-bottom: 2%;
+            }
+
+            #name, #pwdinput {
+                width: 45%;
+                margin-left: 10px;
+            }
+
+            .ip_input {
+                display: flex;
+                flex-direction: row;
+                /*justify-content: center;*/
+                align-items: center;
+
+                width: 100%;
+            }
+
+            #name, #pwdinput {
+                width: 75%;
+                margin-left: 10px;
+
+            }
+
+            .idpwd_box {
+                display: grid;
+                grid-template-columns: 50% 50%;
+            }
+
+            .card {
+                margin-right: 5%;
+                margin-left: 5%;
+
+                z-index: 9;
+
+
+            }
+
+            .pw_box {
+                margin-left: 65%;
+                margin-top: 4.7%;
+                margin-bottom: -8.5%;
+
+                z-index: 99;
+
+                height: 36px;
+
+                display: flex;
+                position: relative;
+            }
+
+            .btn-outline-secondary {
+                margin-left: 93%;
+                margin-top: -9.1%;
+                display: flex;
+            }
+        }
+
+
     </style>
     <!-- AOS 라이브러리 불러오기-->
-        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
 
         //메인 페이지 팀 사진 부분
@@ -514,21 +579,15 @@
                 data: {},
                 success: function (response) {
                     let rows = response['user']
-                    for (let i = 0; i < rows.length-2; i++) {
+                    for (let i = 0; i < rows.length - 2; i++) {
                         let profile_img = rows[i]['profile_img']
-                        let profile_img1 = rows[i+2]['profile_img']
+                        let profile_img1 = rows[i + 2]['profile_img']
                         let key = rows[i]['key']
-                        let key1 = rows[i+2]['key']
+                        let key1 = rows[i + 2]['key']
                         console.log(key1)
 
-                        let temp_html = ` <div class="team-intro__imgbox__1">
-                                                  <form action="http://localhost:5000/detail">
-                                                      <input type="text" name="key" value="${key}" style="display: none">
-                                                      <input type="image" src="${profile_img}">
-                                                  </form>
-                                              </div>`
 
-                        let temp_html1 = ` <div class="list_1">
+                        let temp_html = ` <div class="list_1">
                                                <form action="http://localhost:5000/detail">
                                                       <input type="text" name="key" value="${key}" style="display: none">
                                                       <input type="image" src="${profile_img}">
@@ -541,7 +600,7 @@
                                                </form>
                                            </div>`
 
-                        $('#team_img').append(temp_html1)
+                        $('#team_img').append(temp_html)
                     }
                 }
             });
@@ -604,7 +663,6 @@
                         $('#comment-list').append(temp_html)
 
 
-
                         // $('#delete_pw').append(createPwdInput)
                     }
                 }
@@ -660,12 +718,14 @@
         <div class="text-box">
 
             <div id="clickBtn2">
-                <h1  data-aos="fade-down" data-aos-offset="200" data-aos-easing="ease-out-cubic" data-aos-duration="1400" data-aos-delay="0">RunWay<i class="fa-solid fa-plane fa-1x"></i></h1>
+                <h1 data-aos="fade-down" data-aos-offset="200" data-aos-easing="ease-out-cubic" data-aos-duration="1400"
+                    data-aos-delay="0">RunWay<i class="fa-solid fa-plane fa-1x"></i></h1>
             </div>
 
             <br>
 
-            <h4  data-aos="fade-down" data-aos-offset="200" data-aos-easing="ease-out-cubic" data-aos-duration="1400" data-aos-delay="1000">개발자를 향해</br>
+            <h4 data-aos="fade-down" data-aos-offset="200" data-aos-easing="ease-out-cubic" data-aos-duration="1400"
+                data-aos-delay="1000">개발자를 향해</br>
                 나아가는 대원들!</h4>
         </div>
     </div>
@@ -674,45 +734,45 @@
         AOS.init(); // 자바스크립트로 init()을 해야 동작한다.
     </script>
 
-        <div class="team-intro">
-            <!-- <div class="team-intro__imgbox" id="team_img"> -->
+    <div class="team-intro">
+        <!-- <div class="team-intro__imgbox" id="team_img"> -->
 
-            <!-- 그냥 이미지 박스 원하는 모양으로 임의로 디자인해본 것
-            그냥 상자의 크기나 둥글기가 이랬으면 좋겠다 하는 예시
-            안 쓸 거면 .member_img_list를 지우고 .team-intro__imgbox를 다시 쓰면 됨-->
-            <div id="team_img" class="member_img_list" data-aos="fade-down" data-aos-offset="200" data-aos-easing="ease-out-cubic" data-aos-duration="1400" data-aos-delay="400">
+        <!-- 그냥 이미지 박스 원하는 모양으로 임의로 디자인해본 것
+        그냥 상자의 크기나 둥글기가 이랬으면 좋겠다 하는 예시
+        안 쓸 거면 .member_img_list를 지우고 .team-intro__imgbox를 다시 쓰면 됨-->
+        <div id="team_img" class="member_img_list" data-aos="fade-down" data-aos-offset="200"
+             data-aos-easing="ease-out-cubic" data-aos-duration="1400" data-aos-delay="400">
 
-<!--                <ul class="list_1">-->
-<!--                    <li><a href="#"></a></li>-->
-<!--                    <li><a href="#"></a></li>-->
-<!--                </ul>-->
+            <!--                <ul class="list_1">-->
+            <!--                    <li><a href="#"></a></li>-->
+            <!--                    <li><a href="#"></a></li>-->
+            <!--                </ul>-->
 
-<!--                <ul class="list_2">-->
-<!--                    <li><a href="#"></a></li>-->
-<!--                    <li><a href="#"></a></li>-->
-<!--                </ul>-->
+            <!--                <ul class="list_2">-->
+            <!--                    <li><a href="#"></a></li>-->
+            <!--                    <li><a href="#"></a></li>-->
+            <!--                </ul>-->
 
-            </div>
-            <!-- memver_img_list -->
+        </div>
+        <!-- memver_img_list -->
 
-            <div class="team-intro__text-box">
-                <div class="intro__text-box__phone">
-                    <div class="phone-title">
-                        <h2>TEAM Intro</h2><br>
-                    </div>
-                    <div class="phone-text__box">
-                        <div class="phone-text__minibox">
-                            <h4>팀원들과 소통이 잘 돼요</h4><br>
-                            <h4>시간 약속을 잘 지켜요</h4><br>
-                            <h4>늦은 시간까지 공부해요</h4>
-                            <i class="bi bi-airplane"></i>
-                        </div>
+        <div class="team-intro__text-box">
+            <div class="intro__text-box__phone">
+                <div class="phone-title">
+                    <h2>TEAM Intro</h2><br>
+                </div>
+                <div class="phone-text__box">
+                    <div class="phone-text__minibox">
+                        <h4>팀원들과 소통이 잘 돼요</h4><br>
+                        <h4>시간 약속을 잘 지켜요</h4><br>
+                        <h4>늦은 시간까지 공부해요</h4>
+                        <i class="bi bi-airplane"></i>
                     </div>
                 </div>
             </div>
-
         </div>
 
+    </div>
 
 
     <div class="invite-layout">
@@ -738,7 +798,7 @@
                               style="height: 100px" onresize="none" required minlength="5"></textarea>
                         <label class="label" for="comment">내용을 입력하세요</label>
                     </div>
-                    <button onclick="save_cheers()" type="button" class="btn btn-primary">글 남기기</button>
+                    <button id="post-btn" onclick="save_cheers()" type="button" class="btn btn-dark">글 남기기</button>
                 </div>
             </form>
         </div>
