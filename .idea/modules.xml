@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/teampro.iml" filepath="$PROJECT_DIR$/.idea/teampro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sparta_mini.iml" filepath="$PROJECT_DIR$/.idea/sparta_mini.iml" />
     </modules>
   </component>
 </project>

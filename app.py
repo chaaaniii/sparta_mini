@@ -3,7 +3,9 @@ app = Flask(__name__)
 
 from pymongo import MongoClient
 client = MongoClient('mongodb+srv://test:sparta@cluster0.2frhcdl.mongodb.net/Cluster0?retryWrites=true&w=majority')
-# 예재현 client = MongoClient('mongodb+srv://test:sparta@cluster0.afmxt02.mongodb.net/Cluster0?retryWrites=true&w=majority')
+
+# 예재현
+# client = MongoClient('mongodb+srv://test:sparta@cluster0.afmxt02.mongodb.net/Cluster0?retryWrites=true&w=majority')
 db = client.dbsparta
 
 #메인 화면
@@ -21,8 +23,6 @@ def cheer_post():
 
     cheer_list = list(db.cheerpost.find({}, {'_id': False}))
     count = len(cheer_list)
-
-
 
     doc = {
         'chnum':count,
@@ -80,7 +80,7 @@ def comment_post():
     member_no = request.form.get('memberNum_give',False)
     username_receive = request.form.get('username_give',False)
     comment_receive = request.form.get('comment_give',False)
-
+    compwd_receive = request.form.get('compwd_give',False)
     # print(member_no)
     comment_list = list(db.commentdb.find({}, {'_id': False}))
     count = len(comment_list) + 1
@@ -90,6 +90,7 @@ def comment_post():
         'username': username_receive,
         'comment':comment_receive,
         'conum': count,
+        'saved_pwd2': compwd_receive
     }
     db.commentdb.insert_one(doc)
 
@@ -98,13 +99,30 @@ def comment_post():
 @app.route("/comments", methods=["GET"])
 def comment_get():
     comment_list = list(db.commentdb.find({}, {'_id': False}))
+    print(list(db.commentdb.find({}, {'_id': False})))
     return jsonify({'comments': comment_list})
 
 @app.route("/comments", methods=["DELETE"])
 def comment_delete():
+    comment_list = list(db.commentdb.find({}, {'_id': False}))
     conum_receive = request.form.get('conum_give')
-    db.commentdb.delete_one({'conum': int(conum_receive)})
-    return jsonify({'msg': '삭제 완료!'})
+    compPwd2_receive = request.form.get('compPwd2_give',False)
+
+    print('서버단 댓글 체크: ', conum_receive, '인덱스 :', int(conum_receive)-1)
+
+    db_pwd2 = list(db.commentdb.find({}, {'_id': False}))[int(conum_receive) - 1]['saved_pwd2']
+
+    print('생성할 때 넣은 비밀번호 :', db_pwd2, '/ 삭제하려고 넣은 비밀번호 :', compPwd2_receive)
+    if db_pwd2 == None:
+        db_pwd2 = ''
+    elif compPwd2_receive == None:
+        compPwd2_receive == ''
+
+    if db_pwd2 == compPwd2_receive:
+        db.commentdb.delete_one({'conum': int(conum_receive)})
+        return jsonify({'msg': '삭제 완료'})
+    else:
+        return jsonify({'msg': '비밀번호가 틀렸습니다'})
 
 if __name__ == '__main__':
    app.run('0.0.0.0', port=5000, debug=True)
