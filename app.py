@@ -1,11 +1,11 @@
-from flask import Flask, jsonify, render_template, request
-
+from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 from pymongo import MongoClient
+client = MongoClient('mongodb+srv://test:sparta@cluster0.2frhcdl.mongodb.net/Cluster0?retryWrites=true&w=majority')
 
-# client = MongoClient('mongodb+srv://test:sparta@cluster0.2frhcdl.mongodb.net/Cluster0?retryWrites=true&w=majority')
-client = MongoClient('mongodb+srv://test:sparta@cluster0.afmxt02.mongodb.net/Cluster0?retryWrites=true&w=majority')
+# 예재현
+# client = MongoClient('mongodb+srv://test:sparta@cluster0.afmxt02.mongodb.net/Cluster0?retryWrites=true&w=majority')
 db = client.dbsparta
 
 #메인 화면
@@ -20,18 +20,15 @@ def cheer_post():
     cheer_receive = request.form['cheer_give']
     num_receive = request.form.get('num_give')
     pwd_receive = request.form.get('pwd_give')
-    print("서버가 받은 cheer값",cheer_receive)
 
     cheer_list = list(db.cheerpost.find({}, {'_id': False}))
     count = len(cheer_list)
-
-
 
     doc = {
         'chnum':count,
         'nickname': nickname_receive,
         'cheer':cheer_receive,
-        'saved_pwd':pwd_receive,
+        'saved_pwd':pwd_receive
     }
     db.cheerpost.insert_one(doc)
     return jsonify({'msg': '방명록 등록 완료!'})
@@ -43,11 +40,12 @@ def cheer_get():
 
 @app.route("/cheers", methods=["DELETE"])
 def cheer_delete():
-    idx_receive = request.form.get('idx_give')
+    cheer_list = list(db.cheerpost.find({}, {'_id': False}))
+    delNum_receive = request.form.get('num_give')
     compPwd_receive = request.form.get('compPwd_give')
-    
+    db_pwd = list(db.cheerpost.find({}, {'_id': False}))[int(delNum_receive)-1]['saved_pwd']
 
-    print('인덱스 :',idx_receive, '생성할 때 넣은 비밀번호 :',db_pwd, '/ 삭제하려고 넣은 비밀번호 :',compPwd_receive)
+    print('삭제할 방명록 번호:', delNum_receive, '생성할 때 넣은 비밀번호 :',db_pwd, '/ 삭제하려고 넣은 비밀번호 :',compPwd_receive)
     if db_pwd == None :
         db_pwd = ''
     elif compPwd_receive == None :
@@ -82,8 +80,7 @@ def comment_post():
     member_no = request.form.get('memberNum_give',False)
     username_receive = request.form.get('username_give',False)
     comment_receive = request.form.get('comment_give',False)
-    compwd_receive = request.form.get('compwd_give')
-
+    compwd_receive = request.form.get('compwd_give',False)
     # print(member_no)
     comment_list = list(db.commentdb.find({}, {'_id': False}))
     count = len(comment_list) + 1
@@ -93,7 +90,7 @@ def comment_post():
         'username': username_receive,
         'comment':comment_receive,
         'conum': count,
-        'saved_copwd': compwd_receive
+        'saved_pwd2': compwd_receive
     }
     db.commentdb.insert_one(doc)
 
@@ -102,22 +99,27 @@ def comment_post():
 @app.route("/comments", methods=["GET"])
 def comment_get():
     comment_list = list(db.commentdb.find({}, {'_id': False}))
+    print(list(db.commentdb.find({}, {'_id': False})))
     return jsonify({'comments': comment_list})
 
 @app.route("/comments", methods=["DELETE"])
 def comment_delete():
-    delConum_receive = request.form.get('conum_give')
-    compPwd2_receive = request.form.get('compPwd2_give')
-    db2_pwd = list(db.commentdb.find({}, {'_id': False}))[int(delConum_receive) - 1]['saved_copwd']
+    comment_list = list(db.commentdb.find({}, {'_id': False}))
+    conum_receive = request.form.get('conum_give')
+    compPwd2_receive = request.form.get('compPwd2_give',False)
 
-    print('삭제할 방명록 번호:', delConum_receive, '생성할 때 넣은 비밀번호 :',db2_pwd, '/ 삭제하려고 넣은 비밀번호 :',compPwd2_receive)
-    if db2_pwd == None :
-        db2_pwd = ''
-    elif compPwd2_receive == None :
+    print('서버단 댓글 체크: ', conum_receive, '인덱스 :', int(conum_receive)-1)
+
+    db_pwd2 = list(db.commentdb.find({}, {'_id': False}))[int(conum_receive) - 1]['saved_pwd2']
+
+    print('생성할 때 넣은 비밀번호 :', db_pwd2, '/ 삭제하려고 넣은 비밀번호 :', compPwd2_receive)
+    if db_pwd2 == None:
+        db_pwd2 = ''
+    elif compPwd2_receive == None:
         compPwd2_receive == ''
 
-    if db2_pwd == compPwd2_receive:
-        db.commentdb.delete_one({'conum': int(delConum_receive)})
+    if db_pwd2 == compPwd2_receive:
+        db.commentdb.delete_one({'conum': int(conum_receive)})
         return jsonify({'msg': '삭제 완료'})
     else:
         return jsonify({'msg': '비밀번호가 틀렸습니다'})

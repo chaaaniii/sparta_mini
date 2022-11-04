@@ -1,34 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <!--CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="CSS/introduce.css"> -->
-    <link rel="stylesheet" href="CSS/index.css" />
-    <link rel="stylesheet" href="CSS/firstscreen.css" />
+    <link rel="stylesheet" href="CSS/index.css">
+    <link rel="stylesheet" href="CSS/firstscreen.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/55e1dcffbe.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/55e1dcffbe.js" crossorigin="anonymous"></script>
     <style>
-      * {
-        font-family: "Gowun Dodum", sans-serif;
-      }
-
 
         * {
             font-family: 'Gowun Dodum', sans-serif;
@@ -68,8 +58,6 @@
             text-decoration: underline;
             text-decoration-color: #7634FA;
         }
-      
-
 
         .text-box h4 {
             font-size:7vw;
@@ -89,16 +77,18 @@
         }
 
         #clickBtn input {
-          margin-left: 5%;
+            width: 90px;
+            height: 45px;
+            background-color: #8d54fe;
+            margin-right: 3%;
         }
-
 
         #clickBtn2 i {
             color: #7634FA;
         }
 
-        .team-intro {
 
+        .team-intro {
             height: 76vw;
             /* margin-top: 8%; */
             display: flex;
@@ -154,8 +144,11 @@
         }
 
         .team-intro__imgbox {
-          display: flex;
-          justify-content: center;
+            width: 650px;
+            height: 600px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
         }
 
         .team-intro__imgbox__1 input {
@@ -221,14 +214,16 @@
         }
 
         .invite-box {
-          margin-top: 50%;
-          margin-bottom: 2%;
+            margin-right: 5%;
+            margin-left: 5%;
+            margin-top: 5%;
         }
-      
 
-      .mycards {
-        margin: 20px auto 0 auto;
-      }
+        .invite-box h2 {
+            margin-bottom: 2%;
+            text-decoration: underline;
+            text-decoration-color: #7634FA;
+        }
 
         .col:focus-within input {
             width: 10vw;
@@ -504,23 +499,8 @@
         <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      //메인 페이지 팀 사진 부분
-      $(document).ready(function () {
-        show_photo();
-        show_cheers();
-      });
 
-      function show_photo() {
-        $.ajax({
-          type: "GET",
-          url: "/details",
-          data: {},
-          success: function (response) {
-            let rows = response["user"];
-            for (let i = 0; i < rows.length; i++) {
-              let profile_img = rows[i]["profile_img"];
-              let key = rows[i]["key"];
-
+        //메인 페이지 팀 사진 부분
 
         $(document).ready(function () {
             show_photo();
@@ -546,8 +526,7 @@
                                                       <input type="text" name="key" value="${key}" style="display: none">
                                                       <input type="image" src="${profile_img}">
                                                   </form>
-                                              </div>`;
-
+                                              </div>`
 
                         let temp_html1 = ` <div class="list_1">
                                                <form action="http://localhost:5000/detail">
@@ -590,10 +569,7 @@
                     }
                 })
             }
-        },
-        });
-      }
-
+        }
 
         function show_cheers() {
             $.ajax({
@@ -621,7 +597,6 @@
                                             </blockquote>
                                         </div>
                                         <div class="card-body2">
-
                                             <button type="button" class="btn btn-outline-secondary" onclick="delete_cheers('pwd'+${i}, ${num})">✖</button>
                                         </div>
                                     </div>`
@@ -651,9 +626,9 @@
             });
         }
     </script>
-  </head>
-  <body>
-  <div id="body-size">
+</head>
+<body>
+<div id="body-size">
 
     <div id="clickBtn">
         <input type="button" value="night" class="inputDayNight" onclick="
@@ -737,10 +712,6 @@
             </div>
 
         </div>
-      </div>
-
-      <div class="team-intro">
-        <div class="team-intro__imgbox" id="team_img"></div>
 
 
 
@@ -777,5 +748,6 @@
 
 
     </div>
-  </body>
+</div>
+</body>
 </html>
